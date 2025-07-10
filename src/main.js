@@ -55,10 +55,10 @@ if($('.w-editor-body').length > 0){
     $('.page-load').remove()
 }
 
-window.mixitup = Mixitup
-$.loadScript('https://cdn.jsdelivr.net/gh/psantos-duall/rand-libs@main/dist/mixitup-multifilter.min.js', ()=>{
-    console.log('loaded script')
-})
+// window.mixitup = Mixitup
+// $.loadScript('https://cdn.jsdelivr.net/gh/psantos-duall/rand-libs@main/dist/mixitup-multifilter.min.js', ()=>{
+//     console.log('loaded script')
+// })
 
 //let lottie = window.Webflow.require('lottie')
 
@@ -143,7 +143,7 @@ lenis.scrollTo(0, {immediate: true})
 
 
     //neste caso já não há data para o footer init, investigar necessidade
-    footerInit(data);
+    footerInit();
     navSetupScroll()
 
     //Ainda precisamos do ScrollTrigger.refresh()?
@@ -191,38 +191,6 @@ window.addEventListener("orientationchange", function() {
 --------------------------------------- GLOBALS -----------------------------------------
 *****************************************************************************************/
 
-// -------------------------------- FUNCS
-$.fn.extend({
-    hoverSet: function(hover_in_function=()=>{}, hover_out_function=()=>{}){
-        if ((navigator.maxTouchPoints || 'ontouchstart' in document.documentElement) == false) { // DESKTOP ONLY
-            $(this).each(function(idx, el){
-                $(el).on('mouseenter', ()=>{
-                    hover_in_function(el)
-                })
-                $(el).on('mouseleave', ()=>{
-                    hover_out_function(el)
-                })
-            })
-        }
-        else{
-            $(this).each(function(idx, el){
-                $(el).on('click', ()=>{
-                    hover_in_function(el)
-                })
-                $(el).on('mouseleave', ()=>{
-                    hover_out_function(el)
-                })
-            })
-        }
-    },
-    clickSet: function(click_function=()=>{}){
-        $(this).each(function(idx, el){
-            $(el).on('click', ()=>{
-                click_function(el)
-            })
-        })
-    },
-})
 
 
 /****************************************************************************************
@@ -1682,7 +1650,7 @@ $('.pop-form-input.datepicker').on('click', function () {
 
 
 
-function footerInit(data){
+function footerInit(){
     
     $('.ftr-back-top').click(()=>{
         lenis.scrollTo(0)
@@ -1697,17 +1665,18 @@ function footerInit(data){
         $('html, body').animate({ scrollTop: 0 }, 'slow');
     })
 
-    $('.nav .ftr-link-item').each(function(idx, el){
-        if($(el).attr('data-ftr-item') === "dest"){
-            $(data.next.container).find('#ftr-dest-list').append($(el).clone())
-        }
-        else if($(el).attr('data-ftr-item') === "trip"){
-            $(data.next.container).find('#ftr-trip-list').append($(el).clone())
-        }
-        else if($(el).attr('data-ftr-item') === "exp"){
-            $(data.next.container).find('#ftr-exp-list').append($(el).clone())
-        }
-    })
+    //refazer, não sei para que serve
+    // $('.nav .ftr-link-item').each(function(idx, el){
+    //     if($(el).attr('data-ftr-item') === "dest"){
+    //         $(data.next.container).find('#ftr-dest-list').append($(el).clone())
+    //     }
+    //     else if($(el).attr('data-ftr-item') === "trip"){
+    //         $(data.next.container).find('#ftr-trip-list').append($(el).clone())
+    //     }
+    //     else if($(el).attr('data-ftr-item') === "exp"){
+    //         $(data.next.container).find('#ftr-exp-list').append($(el).clone())
+    //     }
+    // })
 
 
     $('.contact-form').clickSet((el)=>{
@@ -2193,3 +2162,37 @@ export function createAnchor(targetDiv, targetBtn, prevBtn=''){
         }
     }) 
 }
+
+
+// -------------------------------- FUNCS
+$.fn.extend({
+    hoverSet: function(hover_in_function=()=>{}, hover_out_function=()=>{}){
+        if ((navigator.maxTouchPoints || 'ontouchstart' in document.documentElement) == false) { // DESKTOP ONLY
+            $(this).each(function(idx, el){
+                $(el).on('mouseenter', ()=>{
+                    hover_in_function(el)
+                })
+                $(el).on('mouseleave', ()=>{
+                    hover_out_function(el)
+                })
+            })
+        }
+        else{
+            $(this).each(function(idx, el){
+                $(el).on('click', ()=>{
+                    hover_in_function(el)
+                })
+                $(el).on('mouseleave', ()=>{
+                    hover_out_function(el)
+                })
+            })
+        }
+    },
+    clickSet: function(click_function=()=>{}){
+        $(this).each(function(idx, el){
+            $(el).on('click', ()=>{
+                click_function(el)
+            })
+        })
+    },
+})

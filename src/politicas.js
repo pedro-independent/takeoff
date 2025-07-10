@@ -39,11 +39,6 @@ let  navDark = true
 let navProt = true
 
 SetVariables(navProt, navDark, false) 
-{
-    navProt = newNavProt
-    navDark = newNavDark
-    navMenu = newNavMenu
-}
 
 $('.w-condition-invisible').remove()
 

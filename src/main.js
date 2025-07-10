@@ -34,6 +34,7 @@ let navProt = false
 let navDark = false
 let navMenu = false
 
+
 export function SetVariables(newNavProt, newNavDark, newNavMenu) 
 {
     navProt = newNavProt
@@ -222,185 +223,6 @@ $.fn.extend({
         })
     },
 })
-
-
-
-} /*Fim initCOmonCode*/
-
-
-
-
-
-
-
-
-
-
-/***************************************************************************************
------------------------------------------ BARBA ----------------------------------------
-Não apaguei porque tm muitas ainmações e possivelmente nem todas estão relacionadas com a intro / load screen
-****************************************************************************************/
-/*
-barba.init({
-    debug: false,
-    timeout: 6000,
-    prevent: ({ el }) => el.classList && el.classList.contains('prevent'),
-    transitions: [
-    { 
-        name: 'once',
-        once(data){
-            return new Promise(resolve => {
-                let loadTL = gsap.timeline({
-                    onComplete: ()=>{
-                        resolve()
-
-                        gsap.to($('.page-load'), {
-                            opacity: 0,
-                            duration: 1,
-                            ease: 'power3.inOut',
-                            onComplete: ()=>{
-                                $('.page-load').remove()
-                            }
-                        })
-                    }
-                });
-                 
-
-                if($(window).outerWidth() >= 992){ // DESKTOP
-                    loadTL.fromTo($('.loading-num'),{
-                        innerText: 0,
-                        scale: 1
-                    },{
-                        innerText: 100,
-                        scale: 7,
-                        snap: {
-                            innerText: 1
-                        },
-                        duration: 1.5,
-                        delay: 0.5,
-                        ease: "power1.out"
-                    });
-                }
-                else{
-                    loadTL.fromTo($('.loading-num'),{
-                        innerText: 0,
-                        scale: 1
-                    },{
-                        innerText: 100,
-                        scale: 4.5,
-                        snap: {
-                            innerText: 1
-                        },
-                        duration: 1.5,
-                        delay: 0.5,
-                        ease: "power1.out"
-                    });
-                }
-            })
-        }
-    },
-    {
-        name: 'self',
-        leave(data){
-            return new Promise(resolve => {
-                resolve()
-            })
-        },
-        enter(data){
-            return new Promise(resolve => {
-                resolve()
-            })
-        }
-    }, 
-    {
-        name: 'Route Example',
-        from:{
-            custom: ({trigger})=>{
-                return $(trigger).hasClass('example')
-            }
-        },
-        leave(data){
-            return new Promise(resolve => {
-                resolve()
-            })
-        },
-        enter(data){
-            return new Promise(resolve => {
-                resolve()
-            })
-        }
-    }, {
-        name: 'Transition',
-        leave(data){
-            navMenuClose()
-            return new Promise(resolve => {
-                resolve()
-            })
-        },
-        beforeEnter(data){
-            return new Promise(resolve => {
-                $('.trans-txt').children().text($(data.next.container).attr('data-page-title'))
-
-
-                gsap.to($('.trans-wrap'), {
-                    y: '0%',
-                    duration: 0.75,
-                    ease: 'power3.inOut',
-                    onComplete: ()=>{
-                        window.scrollTo(0, 0)
-
-                        navDark = false
-                        navProt = false
-                        navProtOff()
-                        navScaleUp()
-
-                        gsap.set($(data.current.container), {
-                            opacity: 0,
-                            position: 'absolute',
-                            top: 0,
-                            bottom: 0,
-                            left: 0,
-                            right: 0, 
-                            zIndex: -10,
-                        })
-
-                        window.scrollTo(0, 0)
-                        lenis.scrollTo(0, {immediate: true})
-                        lenis.resize()
-                        ScrollTrigger.refresh()
-                    }
-                    
-                })
-
-
-
-                setTimeout(()=>{
-                    resolve()
-                    window.scrollTo(0, 0)
-                    lenis.scrollTo(0, {immediate: true})
-                    gsap.to($('.trans-wrap'), {
-                        y: '-100%',
-                        duration: 0.75,
-                        ease: 'power3.inOut',
-                            // onStart: ()=>{
-                            //     navProtOff()
-                            // }
-                    })
-                }, 1000)
-                
-            })
-        }
-    }],
-    views: [{
-      namespace: 'Home',
-      beforeEnter(data){
-        return new Promise(resolve => {
-            resolve()
-        })
-      },
-    },]
-})
-*/
 
 
 /****************************************************************************************
@@ -600,49 +422,6 @@ function navScaleUp(){
 }
 
 
-function navProtOn(){
-    if(navDark === false){
-        gsap.to($('.nav-holder'), {
-            backgroundColor: colors.white,
-            boxShadow: '0 2px 120px rgba(0, 0, 0, .2)',
-            duration: 0.5,
-            ease: 'power2.inOut'
-        })
-    }
-    else{
-        gsap.to($('.nav-holder'), {
-            backgroundColor: colors.white,
-            boxShadow: '0 2px 120px rgba(0, 0, 0, .0)',
-            duration: 0.5,
-            ease: 'power2.inOut'
-        })
-    }
-    gsap.to($('.nav-menu-bottom'), {
-        backgroundColor: colors.white,
-        duration: 0.5,
-        ease: 'power2.inOut'
-    })
-
-
-    gsap.to($('.nav-takeoff-svg'), {
-        color: colors.darkblue,
-        duration: 0.5,
-        ease: 'power2.inOut'
-    })
-
-    gsap.to($('.nav-lang, .nav-search, .nav-cta'),{
-        borderColor: 'rgba(23, 23, 23, 0.2)',
-        duration: 0.5,
-        ease: 'power2.inOut'
-    })
-
-    gsap.to($('.nav-wrap'), {
-        color: colors.black,
-        duration: 0.5,
-        ease: 'power2.inOut'
-    })
-
-}
 
 function navProtOff(){
 
@@ -2155,7 +1934,231 @@ function btnInit(){
 
 }
 
-function createAnchor(targetDiv, targetBtn, prevBtn=''){
+
+} /*Fim initComonCode*/
+
+
+
+
+
+
+
+
+
+
+/***************************************************************************************
+----------------------------------------- BARBA ----------------------------------------
+Não apaguei porque tm muitas ainmações e possivelmente nem todas estão relacionadas com a intro / load screen
+****************************************************************************************/
+/*
+barba.init({
+    debug: false,
+    timeout: 6000,
+    prevent: ({ el }) => el.classList && el.classList.contains('prevent'),
+    transitions: [
+    { 
+        name: 'once',
+        once(data){
+            return new Promise(resolve => {
+                let loadTL = gsap.timeline({
+                    onComplete: ()=>{
+                        resolve()
+
+                        gsap.to($('.page-load'), {
+                            opacity: 0,
+                            duration: 1,
+                            ease: 'power3.inOut',
+                            onComplete: ()=>{
+                                $('.page-load').remove()
+                            }
+                        })
+                    }
+                });
+                 
+
+                if($(window).outerWidth() >= 992){ // DESKTOP
+                    loadTL.fromTo($('.loading-num'),{
+                        innerText: 0,
+                        scale: 1
+                    },{
+                        innerText: 100,
+                        scale: 7,
+                        snap: {
+                            innerText: 1
+                        },
+                        duration: 1.5,
+                        delay: 0.5,
+                        ease: "power1.out"
+                    });
+                }
+                else{
+                    loadTL.fromTo($('.loading-num'),{
+                        innerText: 0,
+                        scale: 1
+                    },{
+                        innerText: 100,
+                        scale: 4.5,
+                        snap: {
+                            innerText: 1
+                        },
+                        duration: 1.5,
+                        delay: 0.5,
+                        ease: "power1.out"
+                    });
+                }
+            })
+        }
+    },
+    {
+        name: 'self',
+        leave(data){
+            return new Promise(resolve => {
+                resolve()
+            })
+        },
+        enter(data){
+            return new Promise(resolve => {
+                resolve()
+            })
+        }
+    }, 
+    {
+        name: 'Route Example',
+        from:{
+            custom: ({trigger})=>{
+                return $(trigger).hasClass('example')
+            }
+        },
+        leave(data){
+            return new Promise(resolve => {
+                resolve()
+            })
+        },
+        enter(data){
+            return new Promise(resolve => {
+                resolve()
+            })
+        }
+    }, {
+        name: 'Transition',
+        leave(data){
+            navMenuClose()
+            return new Promise(resolve => {
+                resolve()
+            })
+        },
+        beforeEnter(data){
+            return new Promise(resolve => {
+                $('.trans-txt').children().text($(data.next.container).attr('data-page-title'))
+
+
+                gsap.to($('.trans-wrap'), {
+                    y: '0%',
+                    duration: 0.75,
+                    ease: 'power3.inOut',
+                    onComplete: ()=>{
+                        window.scrollTo(0, 0)
+
+                        navDark = false
+                        navProt = false
+                        navProtOff()
+                        navScaleUp()
+
+                        gsap.set($(data.current.container), {
+                            opacity: 0,
+                            position: 'absolute',
+                            top: 0,
+                            bottom: 0,
+                            left: 0,
+                            right: 0, 
+                            zIndex: -10,
+                        })
+
+                        window.scrollTo(0, 0)
+                        lenis.scrollTo(0, {immediate: true})
+                        lenis.resize()
+                        ScrollTrigger.refresh()
+                    }
+                    
+                })
+
+
+
+                setTimeout(()=>{
+                    resolve()
+                    window.scrollTo(0, 0)
+                    lenis.scrollTo(0, {immediate: true})
+                    gsap.to($('.trans-wrap'), {
+                        y: '-100%',
+                        duration: 0.75,
+                        ease: 'power3.inOut',
+                            // onStart: ()=>{
+                            //     navProtOff()
+                            // }
+                    })
+                }, 1000)
+                
+            })
+        }
+    }],
+    views: [{
+      namespace: 'Home',
+      beforeEnter(data){
+        return new Promise(resolve => {
+            resolve()
+        })
+      },
+    },]
+})
+*/
+
+
+
+export function navProtOn(){
+    if(navDark === false){
+        gsap.to($('.nav-holder'), {
+            backgroundColor: colors.white,
+            boxShadow: '0 2px 120px rgba(0, 0, 0, .2)',
+            duration: 0.5,
+            ease: 'power2.inOut'
+        })
+    }
+    else{
+        gsap.to($('.nav-holder'), {
+            backgroundColor: colors.white,
+            boxShadow: '0 2px 120px rgba(0, 0, 0, .0)',
+            duration: 0.5,
+            ease: 'power2.inOut'
+        })
+    }
+    gsap.to($('.nav-menu-bottom'), {
+        backgroundColor: colors.white,
+        duration: 0.5,
+        ease: 'power2.inOut'
+    })
+
+
+    gsap.to($('.nav-takeoff-svg'), {
+        color: colors.darkblue,
+        duration: 0.5,
+        ease: 'power2.inOut'
+    })
+
+    gsap.to($('.nav-lang, .nav-search, .nav-cta'),{
+        borderColor: 'rgba(23, 23, 23, 0.2)',
+        duration: 0.5,
+        ease: 'power2.inOut'
+    })
+
+    gsap.to($('.nav-wrap'), {
+        color: colors.black,
+        duration: 0.5,
+        ease: 'power2.inOut'
+    })
+
+}
+
+export function createAnchor(targetDiv, targetBtn, prevBtn=''){
     ScrollTrigger.create({
         trigger: $(targetDiv),
         start: 'top center',

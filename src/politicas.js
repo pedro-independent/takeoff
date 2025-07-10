@@ -1,8 +1,9 @@
 /****************************************************************************************
 ---------------------------------------- POLITICAS ---------------------------------------
+Not gonna lie, all of this is probably trash
 *****************************************************************************************/
 
-
+ 
 pageClasses['Politica'] = class Politica extends Page {
     async setup(){
         // -------- REMOVE ELEMS THAT DONT FULLFILL CMS CONDITION --------

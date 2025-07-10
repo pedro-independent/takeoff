@@ -9,3 +9,11 @@ export function initCommonStuff() {
   else
   console.log('Green mode NOTTTT activated');
 }
+
+
+ function incrivel()
+{
+    console.log('Ta crazy isto!');
+}
+
+ incrivel();

@@ -19,34 +19,9 @@ import AirDatepicker from 'air-datepicker'
 import AirDatepickerPT from 'air-datepicker/locale/pt'
 */
 
-
-// -------------------------------- GLOBAL VARS/VARIABLES
-
-const colors = {}
-colors.white = '#FFFFFF'
-colors.black = '#171717'
-colors.darkblue = '#213353'
-colors.blue = '#009ABF'
-colors.lightblue = '#EFF4F5'
-colors.yellow = '#F4B71B'
-
-let navProt = false
-let navDark = false
-let navMenu = false
-
-export function SetVariables(newNavProt, newNavDark, newNavMenu) 
-{
-    navProt = newNavProt
-    navDark = newNavDark
-    navMenu = newNavMenu
-}
-
-
 /***************************************************************************************
 ----------------------------------------- INITS ----------------------------------------
 ****************************************************************************************/
-export function initCommonCode() 
-{
 
 window.scrollTo(0, 0)
 
@@ -67,21 +42,22 @@ gsap.registerPlugin(TextPlugin)
 gsap.registerPlugin(Flip)
 
 
-
-//var não usada e, lado nenhum
-//const isTouchMobile = !((navigator.maxTouchPoints || 'ontouchstart' in document.documentElement) == false)
+const isTouchMobile = !((navigator.maxTouchPoints || 'ontouchstart' in document.documentElement) == false)
 
 // -------------------------------- PAGE VARS
 const page = {}
 page.intro = ()=>{}
 
-//const pageClasses = {}
+const pageClasses = {}
 
 
 ScrollTrigger.config({ 
     ignoreMobileResize: true,
     autoRefreshEvents: "DOMContentLoaded,load,visibilitychange",
 });
+
+let globalVarSurfistaOrMotorista = '';
+
 
 
 
@@ -113,7 +89,6 @@ function raf(time) {
     lenis.raf(time)
     requestAnimationFrame(raf)
 }
-
 requestAnimationFrame(raf)
 
 lenis.on('scroll', ScrollTrigger.update)
@@ -122,118 +97,6 @@ lenis.on('scroll', ScrollTrigger.update)
 ScrollTrigger.refresh()
 lenis.resize()
 lenis.scrollTo(0, {immediate: true})
-
-
-
-
-
-    // ---------------- NAV SETUP ----------------
-     // await new Promise(resolve => {
-        navInit()
-     //   resolve()
-    //  }) 
-
-    btnInit()
-
-    //Isto  é codigo pageClass que deve ser para morrer
-    // active.page = new pageClasses[data.next.namespace](data, data.next.namespace)
-    // await active.page.launch()
-
-
-
-    //neste caso já não há data para o footer init, investigar necessidade
-    footerInit(data);
-    navSetupScroll()
-
-    //Ainda precisamos do ScrollTrigger.refresh()?
-    ScrollTrigger.refresh()
-
-    lenis.resize()
-    lenis.stop()
-    lenis.start()
-
-
-    formReset()
-
-
-
-/****************************************************************************************
----------------------------------- WINDOW GENERAL HOOKS ---------------------------------
-DARLING HOLD MY HAND!!!!!!!!!
-Nothing beats a Jet2 Holiday! and right now, you can save up to £50 per person! thats £200 off for a family of four!
-*****************************************************************************************/
-
-//Da fuck's this for?
-
-let sizeW = $(window).outerWidth()
-window.addEventListener('resize', (e) =>{
-    e.preventDefault()
-    let newW = $(window).outerWidth()
-    if(newW != sizeW){
-        console.log('ref event')
-        ScrollTrigger.refresh()
-        lenis.resize()
-        sizeW = newW
-    }
-})
-
-window.addEventListener("orientationchange", function() {
-    console.log('ref orientation')
-    ScrollTrigger.refresh()
-    lenis.resize()
-});
-
-
-
-
-/****************************************************************************************
---------------------------------------- GLOBALS -----------------------------------------
-*****************************************************************************************/
-
-// -------------------------------- FUNCS
-$.fn.extend({
-    hoverSet: function(hover_in_function=()=>{}, hover_out_function=()=>{}){
-        if ((navigator.maxTouchPoints || 'ontouchstart' in document.documentElement) == false) { // DESKTOP ONLY
-            $(this).each(function(idx, el){
-                $(el).on('mouseenter', ()=>{
-                    hover_in_function(el)
-                })
-                $(el).on('mouseleave', ()=>{
-                    hover_out_function(el)
-                })
-            })
-        }
-        else{
-            $(this).each(function(idx, el){
-                $(el).on('click', ()=>{
-                    hover_in_function(el)
-                })
-                $(el).on('mouseleave', ()=>{
-                    hover_out_function(el)
-                })
-            })
-        }
-    },
-    clickSet: function(click_function=()=>{}){
-        $(this).each(function(idx, el){
-            $(el).on('click', ()=>{
-                click_function(el)
-            })
-        })
-    },
-})
-
-
-
-} /*Fim initCOmonCode*/
-
-
-
-
-
-
-
-
 
 
 /***************************************************************************************
@@ -430,8 +293,40 @@ function formReset(){
 
 //Não me parecem uteis agora
 const active = {}
+
 let firstLoad = true
 let renderStopped = true
+
+
+    // ---------------- NAV SETUP ----------------
+    await new Promise(resolve => {
+        navInit()
+        resolve()
+    }) 
+
+    btnInit()
+
+    //Isto  é codigo pageClass que deve ser para morrer
+    // active.page = new pageClasses[data.next.namespace](data, data.next.namespace)
+    // await active.page.launch()
+
+
+
+    //neste caso já não há data para o footer init, investigar necessidade
+    footerInit(data);
+    navSetupScroll()
+
+    //Ainda precisamos do ScrollTrigger.refresh()?
+    ScrollTrigger.refresh()
+
+    lenis.resize()
+    lenis.stop()
+    lenis.start()
+
+
+    formReset()
+
+
 
 
 
@@ -440,7 +335,7 @@ let renderStopped = true
 MAIS Cenas random do barba. Limpei conteudo barba, deixei o resto do codigo para perceber o que é util ou não
 *****************************************************************************************/
     //ScrollTrigger.killAll()  
-    //lenis.resize()
+    lenis.resize()
 
 
 
@@ -449,7 +344,86 @@ MAIS Cenas random do barba. Limpei conteudo barba, deixei o resto do codigo para
 
 
 
+/****************************************************************************************
+---------------------------------- WINDOW GENERAL HOOKS ---------------------------------
+DARLING HOLD MY HAND!!!!!!!!!
+Nothing beats a Jet2 Holiday! and right now, you can save up to £50 per person! thats £200 off for a family of four!
+*****************************************************************************************/
 
+//Da fuck's this for?
+
+
+let sizeW = $(window).outerWidth()
+window.addEventListener('resize', (e) =>{
+    e.preventDefault()
+    let newW = $(window).outerWidth()
+    if(newW != sizeW){
+        console.log('ref event')
+        ScrollTrigger.refresh()
+        lenis.resize()
+        sizeW = newW
+    }
+})
+
+window.addEventListener("orientationchange", function() {
+    console.log('ref orientation')
+    ScrollTrigger.refresh()
+    lenis.resize()
+});
+
+
+/****************************************************************************************
+--------------------------------------- GLOBALS -----------------------------------------
+*****************************************************************************************/
+
+// -------------------------------- FUNCS
+$.fn.extend({
+    hoverSet: function(hover_in_function=()=>{}, hover_out_function=()=>{}){
+        if ((navigator.maxTouchPoints || 'ontouchstart' in document.documentElement) == false) { // DESKTOP ONLY
+            $(this).each(function(idx, el){
+                $(el).on('mouseenter', ()=>{
+                    hover_in_function(el)
+                })
+                $(el).on('mouseleave', ()=>{
+                    hover_out_function(el)
+                })
+            })
+        }
+        else{
+            $(this).each(function(idx, el){
+                $(el).on('click', ()=>{
+                    hover_in_function(el)
+                })
+                $(el).on('mouseleave', ()=>{
+                    hover_out_function(el)
+                })
+            })
+        }
+    },
+    clickSet: function(click_function=()=>{}){
+        $(this).each(function(idx, el){
+            $(el).on('click', ()=>{
+                click_function(el)
+            })
+        })
+    },
+})
+
+
+
+// -------------------------------- GLOBAL VARS/VARIABLES
+
+const colors = {}
+colors.white = '#FFFFFF'
+colors.black = '#171717'
+colors.darkblue = '#213353'
+colors.blue = '#009ABF'
+colors.lightblue = '#EFF4F5'
+colors.yellow = '#F4B71B'
+
+let navProt = false
+let navDark = false
+let navMenu = false
 
 
 
@@ -1449,6 +1423,17 @@ function navInit(){
         })
     })
 
+
+
+
+
+
+    // -------------------- NAV SCROLL UP/DOWN
+    var unlockNav = 1;
+    let currentScroll = 0;
+    let oldScroll = 0;  
+    let tolerance = 5;
+    let scrolled = 0;
 
    
     // -------------------- ORCAMENTO POP-UP

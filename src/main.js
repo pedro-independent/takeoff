@@ -1,23 +1,23 @@
 import './styles/style.css'
 
-/*
-import barba from '@barba/core'
+
+//import barba from '@barba/core'
 import Lenis from '@studio-freight/lenis'
 import gsap from 'gsap'
 import { DrawSVGPlugin } from 'gsap/dist/DrawSVGPlugin.min.js'
 import { Flip } from 'gsap/Flip'
 import { ScrollTrigger } from 'gsap/src/all'
 import { TextPlugin } from 'gsap/TextPlugin'
-import Mixitup from 'mixitup'  
+//import Mixitup from 'mixitup'  
 // import Plyr from 'plyr'
-import csv from 'jquery-csv'
+//import csv from 'jquery-csv'
 
-import Splide from '@splidejs/splide'
+// import Splide from '@splidejs/splide'
 import '@splidejs/splide/css'
 
 import AirDatepicker from 'air-datepicker'
 import AirDatepickerPT from 'air-datepicker/locale/pt'
-*/
+/**/
 
 
 // -------------------------------- GLOBAL VARS/VARIABLES

@@ -11,7 +11,7 @@ import { TextPlugin } from "gsap/TextPlugin";
 // import Plyr from 'plyr'
 //import csv from 'jquery-csv'
 
-// import Splide from '@splidejs/splide'
+//import Splide from '@splidejs/splide';
 import "@splidejs/splide/css";
 
 import AirDatepicker from "air-datepicker";

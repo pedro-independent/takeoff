@@ -11,8 +11,8 @@ import { ResortData, sheetInit } from './excelProcessing.js';
 
 initCommonCode();
 
-pageClasses['Produto'] = class Produto extends Page {
-    async setup(){
+// pageClasses['Produto'] = class Produto extends Page {
+//     async setup(){
 
         
         // -------- REMOVE ELEMS THAT DONT FULLFILL CMS CONDITION --------
@@ -1705,9 +1705,9 @@ Para poder limpar o valor total sempre que se muda a selecção */
         }
         
 
-    }
+    // }
 
-    async render(){
+    // async render(){
          // -------- FORM AUTOFILL --------
          gsap.set($('.pop-expand-content'), {overflow: 'hidden'})
          $('.popup-wrap.orcamento').each(function(idx, el){
@@ -2089,117 +2089,25 @@ Para poder limpar o valor total sempre que se muda a selecção */
         }
 
 
-        // ................................ VIDEOS ................................
-       
-        $('.w-condition-invisible').remove()
-
-    //     if(Webflow.env('editor') == undefined){
-    //         $(this.container).find('.det-dest-media .onda-video, .ondas .onda-video').each(function(idx, el){
-    //             // const controls = ['play', 'play-large', 'progress', 'current-time', 'fullscreen'];
-    //             let iframe = $(el).find('iframe')
-    
-    //             let vidBaseSrc = iframe.attr('data-base-src')
-    //             let vidParams = iframe.attr('data-params')
-    // vidParams = vidParams + '&quality=240p';
-    //             let vidSrc = iframe.attr('data-src')
-    
-    //             if(vidSrc != undefined){
-    //                 let vidCode = vidSrc.split('https://vimeo.com/')[1]
         
-    //                 iframe.attr('src', vidBaseSrc+vidCode+vidParams)
-        
-    //                 let player = new Plyr($(el).find('.plyr__video-embed'), {
-    //                     autoplay: true,
-    //                     autopause: false,
-    //                     muted: true,
-    //                     //youtube: {noCookie: true}
-    //                 })
-        
-    //                 el.player = player
-    
-    //                 player.muted = true
-        
-    //                 player.once('ready', ()=>{
-    //                     player.restart()
-    //                     player.play()
-    //                 })
-        
-    //                 player.once('playing', ()=>{
-    //                     player.restart()
-    //                     player.play()
-    
-    //                     gsap.to($(el),{
-    //                         opacity: 1,
-    //                         duration: 0.75,
-    //                         ease: 'power2.inOut'
-    //                     })
-    //                     gsap.to($(el).parent().find('.contain-img'),{
-    //                         opacity: 0,
-    //                         duration: 0.75,
-    //                         ease: 'power2.inOut'
-    //                     })
-    //                     $(el).find('.plyr__controls, .plyr__control').remove()
-    //                 })
-    //             }
-    
-    //         })
-    //     }
+//     }
 
-        // $('.onda-img').clickSet((el)=>{
-        //     if($(el).find('.onda-popup').length > 0){
-        //         let clone = $(el).find('.onda-popup').clone()
+//     async intro(){
+//         //$('.loader').remove()
+//     }
 
-    
-        //         $('.global-fixed').append(clone)
-                
-    
-        //         const controls = ['play', 'play-large', 'progress', 'current-time', 'fullscreen'];
-        //         let iframe = $('.onda-popup').find('iframe')
-    
-        //         let vidBaseSrc = iframe.attr('data-base-src')
-        //         let vidParams = iframe.attr('data-params')
-    
-        //         let vidSrc = iframe.attr('data-src')
-    
-        //         let vidCode = vidSrc.split('https://www.youtube.com/watch?v=')[1]
-    
-        //         iframe.attr('src', vidBaseSrc+vidCode+vidParams)
-    
-        //         let player = new Plyr(clone.find('.plyr__video-embed'), {
-        //             controls: controls,
-        //             youtube: {noCookie: true}
-        //         })
-    
-        //         this.player = player
-    
-        //         clone.find('.onda-vid-close').clickSet((el)=>{
-        //             $('.global-fixed .onda-popup').remove()
-        //         })
-
-        //     }
-
-        // })
-
-
-        
-    }
-
-    async intro(){
-        //$('.loader').remove()
-    }
-
-    async leave(){
-        gsap.to($('.ancoras-fixed'), {
-            y: '100%',
-            duration: 0.25,
-            ease: 'power2.inOut',
-            onComplete: ()=>{
-                $('.global-fixed *').remove()
-            }
-        })
-        return
-    }
-}
+//     async leave(){
+//         gsap.to($('.ancoras-fixed'), {
+//             y: '100%',
+//             duration: 0.25,
+//             ease: 'power2.inOut',
+//             onComplete: ()=>{
+//                 $('.global-fixed *').remove()
+//             }
+//         })
+//         return
+//     }
+// }
 
 
 

@@ -27,9 +27,9 @@ initCommonCode();
         }
 
         // -------- SETUP OFFER CARDS --------
-        $([$(this.container).find('.off-card')[0], $(this.container).find('.off-card')[1]]).wrapAll('<div class="off-card-row"></div>')
-        $([$(this.container).find('.off-card')[2], $(this.container).find('.off-card')[3]]).wrapAll('<div class="off-card-row"></div>')
-        $([$(this.container).find('.off-card')[0], $(this.container).find('.off-card')[3]]).addClass('dest')
+        $([$('.page-container').find('.off-card')[0], $('.page-container').find('.off-card')[1]]).wrapAll('<div class="off-card-row"></div>')
+        $([$('.page-container').find('.off-card')[2], $('.page-container').find('.off-card')[3]]).wrapAll('<div class="off-card-row"></div>')
+        $([$('.page-container').find('.off-card')[0], $('.page-container').find('.off-card')[3]]).addClass('dest')
         $('.off-card-wrap').hoverSet((el)=>{
             gsap.to($(el).find('.off-card-bg'), {
                 scale: 1,
@@ -87,9 +87,9 @@ initCommonCode();
 //         }
 
 //         // -------- SETUP OFFER CARDS --------
-//         $([$(this.container).find('.off-card')[0], $(this.container).find('.off-card')[1]]).wrapAll('<div class="off-card-row"></div>')
-//         $([$(this.container).find('.off-card')[2], $(this.container).find('.off-card')[3]]).wrapAll('<div class="off-card-row"></div>')
-//         $([$(this.container).find('.off-card')[0], $(this.container).find('.off-card')[3]]).addClass('dest')
+//         $([$('.page-container').find('.off-card')[0], $('.page-container').find('.off-card')[1]]).wrapAll('<div class="off-card-row"></div>')
+//         $([$('.page-container').find('.off-card')[2], $('.page-container').find('.off-card')[3]]).wrapAll('<div class="off-card-row"></div>')
+//         $([$('.page-container').find('.off-card')[0], $('.page-container').find('.off-card')[3]]).addClass('dest')
 //         $('.off-card-wrap').hoverSet((el)=>{
 //             gsap.to($(el).find('.off-card-bg'), {
 //                 scale: 1,
@@ -106,7 +106,7 @@ initCommonCode();
    
 //         // ................................ VIDEOS ................................
 //     //     if(Webflow.env('editor') == undefined){
-//     //         $(this.container).find('.hero-bg-vid').each(function(idx, el){
+//     //         $('.page-container').find('.hero-bg-vid').each(function(idx, el){
 //     //             // const controls = ['play', 'play-large', 'progress', 'current-time', 'fullscreen'];
 //     //             let iframe = $(el).find('iframe')
     

@@ -7,7 +7,7 @@ import { DrawSVGPlugin } from "gsap/dist/DrawSVGPlugin.min.js";
 import { Flip } from "gsap/Flip";
 import { ScrollTrigger } from "gsap/src/all";
 import { TextPlugin } from "gsap/TextPlugin";
-import Mixitup from "mixitup";
+// import Mixitup from "mixitup";
 // import Plyr from 'plyr'
 //import csv from 'jquery-csv'
 
@@ -2247,7 +2247,7 @@ export function createAnchor(targetDiv, targetBtn, prevBtn = "") {
 }
 
 // -------------------------------- FUNCS
-$.fn.extend({
+ $.fn.extend({
   hoverSet: function (
     hover_in_function = () => {},
     hover_out_function = () => {}
@@ -2284,3 +2284,4 @@ $.fn.extend({
     });
   },
 });
+

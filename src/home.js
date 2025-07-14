@@ -6,6 +6,8 @@ import gsap from "gsap";
 // import { TextPlugin } from "gsap/TextPlugin";
 import Splide from '@splidejs/splide'
 import "@splidejs/splide/css";
+import "./styles/style.css";
+
 
 /****************************************************************************************
 ------------------------------------------ HOME -----------------------------------------
@@ -13,11 +15,12 @@ import "@splidejs/splide/css";
 
 
 
-import { SetVariables, initCommonCode,  } from './main.js';
+import { SetVariables, initCommonCode,  btnInit } from './main.js';
 
 
 initCommonCode();
 
+btnInit()
 
 
 // pageClasses['Home'] = class Home extends Page {

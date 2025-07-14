@@ -1903,84 +1903,7 @@ Muita coisa geral
       });
   }
 
-  function btnInit() {
-    // -------- ARROW BUTTONS
-    gsap.set($(".btn-hover-arr-wrap"), {
-      width: 0,
-      opacity: 0,
-    });
-
-    $(".nav-cta, .nav-search, .big-btn, .btn").hoverSet(
-      (el) => {
-        gsap.to($(el).find(".btn-hover-arr-wrap"), {
-          opacity: 1,
-          width: "auto",
-          duration: 0.5,
-          ease: "power2.inOut",
-        });
-      },
-      (el) => {
-        gsap.to($(el).find(".btn-hover-arr-wrap"), {
-          opacity: 0,
-          width: 0,
-          duration: 0.5,
-          ease: "power2.inOut",
-        });
-      }
-    );
-
-    // -------- SPLIDE BUTTONS
-    $(".path-fill").each(function (idx, el) {
-      if ($(el).parents(".splide__arrow--next").length > 0) {
-        gsap.set(el, {
-          drawSVG: "100% 100%",
-        });
-      } else {
-        gsap.set(el, {
-          drawSVG: "0% 0%",
-        });
-      }
-    });
-
-    $(".nav-btn").hoverSet(
-      (el) => {
-        gsap.to($(el).find(".path-fill"), {
-          drawSVG: "100% 0%",
-          duration: 0.3,
-          ease: "power2.inOut",
-        });
-
-        gsap.to($(el).find(".btn-arrow-svg").not(".white"), {
-          color: colors.blue,
-          duration: 0.3,
-          ease: "power2.inOut",
-        });
-      },
-      (el) => {
-        if ($(el).hasClass("splide__arrow--next")) {
-          gsap.to($(el).find(".path-fill"), {
-            drawSVG: "100% 100%",
-            duration: 0.3,
-            ease: "power2.inOut",
-          });
-        } else {
-          gsap.to($(el).find(".path-fill"), {
-            drawSVG: "0% 0%",
-            duration: 0.3,
-            ease: "power2.inOut",
-          });
-        }
-
-        gsap.to($(el).find(".btn-arrow-svg").not(".white"), {
-          color: () => {
-            return $(el).find(".btn-arrow-svg").parent().css("color");
-          },
-          duration: 0.3,
-          ease: "power2.inOut",
-        });
-      }
-    );
-  }
+  
 } /*Fim initComonCode*/
 
 /***************************************************************************************
@@ -2285,3 +2208,83 @@ export function createAnchor(targetDiv, targetBtn, prevBtn = "") {
   },
 });
 
+
+
+export function btnInit() {
+    // -------- ARROW BUTTONS
+    gsap.set($(".btn-hover-arr-wrap"), {
+      width: 0,
+      opacity: 0,
+    });
+
+    $(".nav-cta, .nav-search, .big-btn, .btn").hoverSet(
+      (el) => {
+        gsap.to($(el).find(".btn-hover-arr-wrap"), {
+          opacity: 1,
+          width: "auto",
+          duration: 0.5,
+          ease: "power2.inOut",
+        });
+      },
+      (el) => {
+        gsap.to($(el).find(".btn-hover-arr-wrap"), {
+          opacity: 0,
+          width: 0,
+          duration: 0.5,
+          ease: "power2.inOut",
+        });
+      }
+    );
+
+    // -------- SPLIDE BUTTONS
+    $(".path-fill").each(function (idx, el) {
+      if ($(el).parents(".splide__arrow--next").length > 0) {
+        gsap.set(el, {
+          drawSVG: "100% 100%",
+        });
+      } else {
+        gsap.set(el, {
+          drawSVG: "0% 0%",
+        });
+      }
+    });
+
+    $(".nav-btn").hoverSet(
+      (el) => {
+        gsap.to($(el).find(".path-fill"), {
+          drawSVG: "100% 0%",
+          duration: 0.3,
+          ease: "power2.inOut",
+        });
+
+        gsap.to($(el).find(".btn-arrow-svg").not(".white"), {
+          color: colors.blue,
+          duration: 0.3,
+          ease: "power2.inOut",
+        });
+      },
+      (el) => {
+        if ($(el).hasClass("splide__arrow--next")) {
+          gsap.to($(el).find(".path-fill"), {
+            drawSVG: "100% 100%",
+            duration: 0.3,
+            ease: "power2.inOut",
+          });
+        } else {
+          gsap.to($(el).find(".path-fill"), {
+            drawSVG: "0% 0%",
+            duration: 0.3,
+            ease: "power2.inOut",
+          });
+        }
+
+        gsap.to($(el).find(".btn-arrow-svg").not(".white"), {
+          color: () => {
+            return $(el).find(".btn-arrow-svg").parent().css("color");
+          },
+          duration: 0.3,
+          ease: "power2.inOut",
+        });
+      }
+    );
+  }

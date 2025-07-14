@@ -117,7 +117,6 @@ export function initCommonCode() {
   // active.page = new pageClasses[data.next.namespace](data, data.next.namespace)
   // await active.page.launch()
 
-  //neste caso já não há data para o footer init, investigar necessidade
   footerInit();
   navSetupScroll();
 

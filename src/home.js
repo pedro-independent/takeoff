@@ -5,8 +5,8 @@ import gsap from "gsap";
 // import { ScrollTrigger } from "gsap/src/all";
 // import { TextPlugin } from "gsap/TextPlugin";
 import Splide from '@splidejs/splide'
-import "@splidejs/splide/css";
-import "./styles/style.css";
+//import "@splidejs/splide/css";
+//import "./styles/style.css";
 
 
 /****************************************************************************************
@@ -15,12 +15,12 @@ import "./styles/style.css";
 
 
 
-import { SetVariables, initCommonCode,  btnInit } from './main.js';
+import { SetVariables, initCommonCode } from './main.js';
 
 
 initCommonCode();
 
-btnInit()
+//btnInit()
 
 
 // pageClasses['Home'] = class Home extends Page {

@@ -12,7 +12,7 @@ import { TextPlugin } from "gsap/TextPlugin";
 //import csv from 'jquery-csv'
 
 //import Splide from '@splidejs/splide';
-import "@splidejs/splide/css";
+// import "@splidejs/splide/css";
 
 import AirDatepicker from "air-datepicker";
 import AirDatepickerPT from "air-datepicker/locale/pt";

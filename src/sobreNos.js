@@ -4,7 +4,7 @@
 
 import { initCommonCode } from './main.js';
 import Splide from '@splidejs/splide';
-import "@splidejs/splide/css";
+// import "@splidejs/splide/css";
 import gsap from "gsap";
 
 initCommonCode();

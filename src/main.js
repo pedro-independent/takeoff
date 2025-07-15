@@ -20,7 +20,7 @@ import AirDatepickerPT from "air-datepicker/locale/pt";
 
 // -------------------------------- GLOBAL VARS/VARIABLES
 
-const colors = {};
+export const colors = {};
 colors.white = "#FFFFFF";
 colors.black = "#171717";
 colors.darkblue = "#213353";
@@ -1491,6 +1491,7 @@ Muita coisa geral
 
     let activeDest = undefined;
     let activeType = undefined;
+    /*Tiago: Não sei porquªe, mas tive de declarar esta variavel */let activeSubDest = undefined;
 
     $(".nav")
       .find('#pop-dest-radios input[type="radio"]')

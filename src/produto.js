@@ -2,7 +2,16 @@ import gsap from "gsap";
 // import { DrawSVGPlugin } from "gsap/dist/DrawSVGPlugin.min.js";
 //import { Flip } from "gsap/Flip";
 import { ScrollTrigger } from "gsap/src/all";
+import Splide from '@splidejs/splide'
 //import { TextPlugin } from "gsap/TextPlugin";
+
+import AirDatepicker from "air-datepicker";
+import AirDatepickerPT from "air-datepicker/locale/pt";
+
+import mixitup from "mixitup";
+import multifilter from 'mixitup-multifilter';
+// Register the plugin
+mixitup.use(multifilter);
 
 
 /****************************************************************************************
@@ -10,7 +19,7 @@ import { ScrollTrigger } from "gsap/src/all";
 *****************************************************************************************/
 
 
-import { initCommonCode, createAnchor } from './main.js';
+import { initCommonCode, createAnchor, colors } from './main.js';
 import { ResortData, sheetInit } from './excelProcessing.js';
 
 
@@ -231,43 +240,44 @@ initCommonCode();
         createAnchor('#testemunhos', '#testemunhos-btn', '#regras-btn')
 
 
-        if(barba.history.previous != null){
-            $('.ancoras-back').hoverSet((el)=>{
-                gsap.to($(el).find('.path-fill'), {
-                    drawSVG: '100% 0%',
-                    duration: 0.3,
-                    ease: 'power2.inOut'
-                })
+        //tiago: barba descontinuado
+        // if(barba.history.previous != null){
+        //     $('.ancoras-back').hoverSet((el)=>{
+        //         gsap.to($(el).find('.path-fill'), {
+        //             drawSVG: '100% 0%',
+        //             duration: 0.3,
+        //             ease: 'power2.inOut'
+        //         })
         
-                gsap.to($(el), {
-                    color: colors.blue,
-                    duration: 0.3,
-                    ease: 'power2.inOut'
-                })
+        //         gsap.to($(el), {
+        //             color: colors.blue,
+        //             duration: 0.3,
+        //             ease: 'power2.inOut'
+        //         })
         
-            }, (el)=>{
-                gsap.to($(el).find('.path-fill'), {
-                    drawSVG: '0% 0%',
-                    duration: 0.3,
-                    ease: 'power2.inOut'
-                })
+        //     }, (el)=>{
+        //         gsap.to($(el).find('.path-fill'), {
+        //             drawSVG: '0% 0%',
+        //             duration: 0.3,
+        //             ease: 'power2.inOut'
+        //         })
                 
         
-                gsap.to($(el), {
-                    color: ()=>{
-                        return $(el).parent().css('color')
-                    },
-                    duration: 0.3,
-                    ease: 'power2.inOut'
-                })
-            })
-            $('.ancoras-back').clickSet((el)=>{
-                barba.go(barba.history.previous.url)
-            })
-        }
-        else{
-            $('.ancoras-back').remove()
-        }
+        //         gsap.to($(el), {
+        //             color: ()=>{
+        //                 return $(el).parent().css('color')
+        //             },
+        //             duration: 0.3,
+        //             ease: 'power2.inOut'
+        //         })
+        //     })
+        //     $('.ancoras-back').clickSet((el)=>{
+        //         barba.go(barba.history.previous.url)
+        //     })
+        // }
+        // else{
+        //     $('.ancoras-back').remove()
+        // }
 
         $('.anc-burg').clickSet((el)=>{
             if(!$(el).hasClass('open')){

@@ -3,7 +3,7 @@
 *****************************************************************************************/
 import csv from 'jquery-csv'
 
-let globalVarSurfistaOrMotorista = '';
+export const globalVarSurfistaOrMotorista = '';
 
 export class ResortData {
     constructor(obj){

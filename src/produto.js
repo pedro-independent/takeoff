@@ -15,7 +15,7 @@ mixitup.use(multifilter);
 
 
 import { initCommonCode, createAnchor, colors } from './main.js';
-import { ResortData, sheetInit } from './excelProcessing.js';
+import { ResortData, sheetInit, globalVarSurfistaOrMotorista } from './excelProcessing.js';
 
 
 

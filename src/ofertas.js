@@ -4,6 +4,7 @@ import multifilter from 'mixitup-multifilter';
 // Register the plugin
 mixitup.use(multifilter);
 
+
 import gsap from "gsap";
 // import { DrawSVGPlugin } from "gsap/dist/DrawSVGPlugin.min.js";
 // import { Flip } from "gsap/Flip";

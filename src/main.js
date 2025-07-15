@@ -131,8 +131,6 @@ export function initCommonCode() {
 
   /****************************************************************************************
 ---------------------------------- WINDOW GENERAL HOOKS ---------------------------------
-DARLING HOLD MY HAND!!!!!!!!!
-Nothing beats a Jet2 Holiday! and right now, you can save up to £50 per person! thats £200 off for a family of four!
 *****************************************************************************************/
 
   //Da fuck's this for?
@@ -142,7 +140,7 @@ Nothing beats a Jet2 Holiday! and right now, you can save up to £50 per person!
     e.preventDefault();
     let newW = $(window).outerWidth();
     if (newW != sizeW) {
-      console.log("ref event");
+      // console.log("ref event");
       ScrollTrigger.refresh();
       lenis.resize();
       sizeW = newW;

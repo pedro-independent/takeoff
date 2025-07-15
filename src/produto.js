@@ -346,29 +346,29 @@ $(container).find('.acc-gal-wrap .acc-gal-list').append(galItem);
                                     })
 
 
-                                               console.log('### AcomodacoesVariables ###');
-                        console.log(acomodacoesList);
-                        console.log(selectedAcomodacao);
+                        //console.log('### AcomodacoesVariables ###');
+                        // console.log(acomodacoesList);
+                        // console.log(selectedAcomodacao);
 
                         // if(!acomodacoesList.includes(selectedAcomodacao))
                             if(savedAcomodacao != selectedAcomodacao)
                         {
                             savedAcomodacao = selectedAcomodacao;
-                            console.log("entrou");
+                            
 
                             acomodacoesList.push(selectedAcomodacao);
 
 
                                  
-                                    console.log("looooooooook in");
-console.log($('.det-pop-list *'));
-console.log($('.det-pop-thumb-list *'));
+                                    // console.log("looooooooook in");
+                                    // console.log($('.det-pop-list *'));
+                                    // console.log($('.det-pop-thumb-list *'));
                                     $('.det-pop-list *').remove()
                                     $('.det-pop-thumb-list *').remove()
                                     //  $('.det-pop-list ').empty();
                                     //  $('.det-pop-thumb-list ').empty();
                                     
-                                    console.log("looooooooook out");
+                                    // console.log("looooooooook out");
 
                                     // $('.acc-gal-item.splide__slide').not('.splide__slide--clone').each(function(idx, elem){
                                     //     $('.det-pop-list').append($(elem).find('.full-res-img').children().clone())
@@ -1217,7 +1217,7 @@ Para poder limpar o valor total sempre que se muda a selecção */
     
                         $('[data-input-sync="Valor Total"]').val(result.toString().replaceAll(',', ' '))
 
-                        console.log(mult)
+                        // console.log(mult)
                         $('[data-input-sync="Capacidade"]').val(mult)
                         
                         $('.consulta-form-wrap').find('.pop-form-picker input').first().val(mult)
@@ -1823,10 +1823,10 @@ Para poder limpar o valor total sempre que se muda a selecção */
                                 ease: 'power2.inOut'
                             })
 
-                            console.log("looooooooook in 2");
+                            
                             $('.det-pop-list *').remove()
                             $('.det-pop-thumb-list *').remove()
-                            console.log("looooooooook out 2");
+                            
 
                             $('.det-thumb-img').not('.splide__slide--clone').each(function(idx, elem){
                                 $('.det-pop-list').append($(elem).find('.full-res-img').children().clone())

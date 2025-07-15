@@ -1,3 +1,9 @@
+import gsap from "gsap";
+// import { DrawSVGPlugin } from "gsap/dist/DrawSVGPlugin.min.js";
+// import { Flip } from "gsap/Flip";
+// import { ScrollTrigger } from "gsap/src/all";
+// import { TextPlugin } from "gsap/TextPlugin";
+
 
 /****************************************************************************************
 ---------------------------------------- Experiencias ---------------------------------------

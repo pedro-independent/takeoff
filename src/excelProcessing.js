@@ -147,7 +147,8 @@ export class ResortData {
             let period = 0
 
             //console.log('outer: ' + rowIdx)
-console.log(row);
+            //tiago
+            //console.log(row);
             row.forEach((col, colIdx) => {
                 //console.log('inner: ' + colIdx)
                 let key = this.headers[colIdx]
@@ -427,7 +428,7 @@ console.log(row);
         let lowestPrice = 999999999999990;
     document.querySelector('.dest-ofertas-pricing.notused')?.classList.remove('notused');
         $('.consulta-form-wrap').append(capacityInput)
-   // console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+   
         this.objDict.forEach((entry)=>{
         
             

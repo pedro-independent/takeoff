@@ -1,4 +1,4 @@
-import { SetVariables, initCommonCode, navProtOn, colors } from './main.js';
+import { SetVariables, initCommonCode, navProtOn, colors } from '../global.js';
 import mixitup from "mixitup";
 import multifilter from 'mixitup-multifilter';
 // Register the plugin
@@ -15,6 +15,9 @@ import { ScrollTrigger } from "gsap/src/all";
 /****************************************************************************************
 --------------------------------------- OFERTAS ----------------------------------------
 *****************************************************************************************/
+
+export function runOfertas()
+{
 
 // pageClasses['Ofertas'] = class Ofertas extends Page {
 //     async setup(){
@@ -365,3 +368,4 @@ import { ScrollTrigger } from "gsap/src/all";
 // }
 
 
+    }

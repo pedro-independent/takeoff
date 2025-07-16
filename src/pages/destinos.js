@@ -1,6 +1,8 @@
 
-import { SetVariables, initCommonCode, navProtOn } from './main.js';
+import { SetVariables, initCommonCode, navProtOn } from '../global.js';
 
+export function runDestinos()
+{
 let  navDark = true
 let navProt = true
 
@@ -17,3 +19,4 @@ setTimeout(()=>{
 
 //??
 $('.global-fixed *').remove()
+}

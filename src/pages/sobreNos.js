@@ -2,10 +2,13 @@
 --------------------------------------- SOBRE NÓS ---------------------------------------
 *****************************************************************************************/
 
-import { initCommonCode } from './main.js';
+import { initCommonCode } from '../global.js';
 import Splide from '@splidejs/splide';
 // import "@splidejs/splide/css";
 import gsap from "gsap";
+
+export function runSobreNos()
+{
 
 initCommonCode();
 
@@ -187,3 +190,4 @@ $('.global-fixed *').remove()
 
 
 
+}

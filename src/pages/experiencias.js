@@ -9,8 +9,10 @@ import gsap from "gsap";
 ---------------------------------------- Experiencias ---------------------------------------
 *****************************************************************************************/
 
-import { SetVariables, initCommonCode, navProtOn } from './main.js';
+import { SetVariables, initCommonCode, navProtOn } from '../global.js';
 
+export function runExperiencias()
+{
 let  navDark = true
 let navProt = true
 
@@ -64,3 +66,4 @@ initCommonCode();
     //???
     $('.global-fixed *').remove()
 
+    }

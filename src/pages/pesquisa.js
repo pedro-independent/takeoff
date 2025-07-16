@@ -5,8 +5,11 @@ import gsap from "gsap";
 ---------------------------------------- PESQUISA ---------------------------------------
 *****************************************************************************************/
 
-import { SetVariables, initCommonCode, navProtOn } from './main.js';
+import { SetVariables, initCommonCode, navProtOn } from '../global.js';
 
+
+export function runPesquisa()
+{
 let  navDark = true
 let navProt = true
 
@@ -193,3 +196,4 @@ initCommonCode();
 
 
 
+}

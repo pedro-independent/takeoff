@@ -1026,7 +1026,7 @@ Para poder limpar o valor total sempre que se muda a selecção */
                         $('.consulta-res-wrap').find('.consulta-picker-block input').each(function(idx, el){
                             $(el).val(valorLimpo)
                         })
-    
+
                         $('.price-total').text(valorLimpo)
     
                         $('[data-input-sync="Valor Total"]').val(valorLimpo)
@@ -1550,6 +1550,8 @@ Para poder limpar o valor total sempre que se muda a selecção */
                     let textDiv = $(el).parents('.pop-form-input-wrap').find('.pop-form-input')
                     textDiv.val($(el).children().text())
                 })
+
+                $('.consulta-form-wrap').find('.pop-cont-radio').parents('.pop-form-input-wrap').find('.pop-form-input')
     
     
                 $('.consulta-wrap').find('.popup-form').each(function(){

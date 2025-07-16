@@ -17,6 +17,13 @@ mixitup.use(multifilter);
 import { initCommonCode, createAnchor, colors } from '../global.js';
 import { ResortData, sheetInit, globalVarSurfistaOrMotorista } from '../excelProcessing.js';
 
+
+      // -------- ACOMODAÇÕES --------
+        let selectedAcomodacao ='primeiro';
+        let savedAcomodacao ="";
+        let acomodacoesList = [];
+
+     
 export function runProduto()
 {
 
@@ -34,27 +41,7 @@ initCommonCode();
             $('.consulta-page-wrap, .consulta-wrap, .consulta-hero-wrap').removeClass('editor')
         }
 
-        // -------- GALERIA DE ONDAS --------
-        if($('.page-container').find('.onda-list').length > 0){
-            let container = $('.page-container')
-            // await new Promise(resolve => {
-                $(container).find('.onda-list').each(function(idx, el){
-                    
-                    let slug = $(el).attr('data-slug') 
-        
-                    $(el).load(`/galeria-de-ondas/${slug} .onda-card`, ()=>{
-                        // resolve()
-                    })
-                })
-            // })
-
-            // await new Promise(resolve => {
-                console.log('') // load bearing console log, NÃO APAGAR PFV!!!!!!!!
-                setTimeout(()=>{
-                    // resolve()
-                }, 750)
-            // })
-        }
+      
 
 
         // ................................ VIDEOS ................................
@@ -306,107 +293,7 @@ initCommonCode();
         }
 
 
-        // -------- ACOMODAÇÕES --------
-        let selectedAcomodacao ='primeiro';
-        let savedAcomodacao ="";
-        let acomodacoesList = [];
-
-        if($('.page-container').find('.acc-list-item').length > 0){
-            // await new Promise(resolve => {
-                let container = $('.page-container')
-                let slug = $(container).find('.acc-gal').attr('data-slug')
-                $(container).find('.acc-list-item').each(function(idx, el){
-                    let name = $(el).attr('data-name')
-
-                    $(el).find('.loader').load(`/modulo-acomodacoes/${slug}  .acc-gal[data-name="${name}"] .acc-gal-list`, ()=>{
-
-                        // $(el).find('.loader .acc-gal-item').attr('data-name', name)
-
-                        // $(container).find('.acc-gal-wrap .acc-gal-list').append($(el).find('.loader .acc-gal-item'))
-    let galItem = $(el).find('.loader .acc-gal-item').clone();
-galItem.attr('data-name', name);
-$(container).find('.acc-gal-wrap .acc-gal-list').append(galItem);
-
-                    
-                        if(el === $('.acc-list-item').last().get(0)){
-                            setTimeout(()=>{                        
-                                // -------- ACOMODAÇÕES POPUP --------
-                                $('.acc-gal-item').clickSet((el)=>{
-
-
-                                       gsap.set($('.det-popup-gal'), {display: 'block', opacity: 0})
-                                    gsap.to($('.det-popup-gal'), {
-                                        opacity: 1,
-                                        duration: 0.5,
-                                        ease: 'power2.inOut'
-                                    })
-
-
-                        //console.log('### AcomodacoesVariables ###');
-                        // console.log(acomodacoesList);
-                        // console.log(selectedAcomodacao);
-
-                        // if(!acomodacoesList.includes(selectedAcomodacao))
-                            if(savedAcomodacao != selectedAcomodacao)
-                        {
-                            savedAcomodacao = selectedAcomodacao;
-                            
-
-                            acomodacoesList.push(selectedAcomodacao);
-
-
-                                 
-                                    // console.log("looooooooook in");
-                                    // console.log($('.det-pop-list *'));
-                                    // console.log($('.det-pop-thumb-list *'));
-                                    $('.det-pop-list *').remove()
-                                    $('.det-pop-thumb-list *').remove()
-                                    //  $('.det-pop-list ').empty();
-                                    //  $('.det-pop-thumb-list ').empty();
-                                    
-                                    // console.log("looooooooook out");
-
-                                    // $('.acc-gal-item.splide__slide').not('.splide__slide--clone').each(function(idx, elem){
-                                    //     $('.det-pop-list').append($(elem).find('.full-res-img').children().clone())
-                                    //     $('.det-pop-thumb-list').append($(elem).children().find('.contain-img'))
-                                    // })
-
-                                    //tiago
-                                    $('.acc-gal-item.splide__slide').not('.splide__slide--clone').each(function(idx, elem) {
-    // Clone and append the children of .full-res-img
-    $('.det-pop-list').append(
-        $(elem).find('.full-res-img').children().clone()
-    );
-
-    // Clone and append .contain-img itself (not just move it)
-    $('.det-pop-thumb-list').append(
-        $(elem).children().find('.contain-img').clone()
-    );
-});
-
-                                    $('.det-pop-list').children().wrap('<div class="det-pop-item-img"></div>')
-                                    $('.det-pop-list').children().wrap('<div class="det-pop-item splide__slide"></div>')
-
-                                    $('.det-pop-thumb-list').children().removeClass('contain-img').addClass('cover-img')
-                                    $('.det-pop-thumb-list').children().wrap('<div class="det-thumb-img-popup splide__slide"></div>')
-
-                                    let i = $(el).attr('aria-label').split(' ')[0]
-                                    $('.det-popup-content.splide').get(0).splide.refresh()
-                                    $('.det-popup-content.splide').get(0).splide.go(parseFloat(i)-1)
-                                    $('.det-popup-thumb-slide.splide').get(0).splide.refresh()
-                                    $('.det-popup-thumb-slide.splide').get(0).splide.go(parseFloat(i)-1)
-                                    
-                        }
-                                })
-
-                                // resolve()
-                            }, 250)
-                        }
-                    })
-        
-                })
-            // })
-        }
+  
         
         $('.page-container').find('.acc-content-item').first().addClass('active')
         $('.page-container').find('.acc-list-item').first().addClass('active')
@@ -2053,4 +1940,126 @@ Para poder limpar o valor total sempre que se muda a selecção */
         }
 
 
-    }
+    }   
+    
+    
+    
+    if($('.page-container').find('.acc-list-item').length > 0){
+            await new Promise(resolve => {
+                let container = $('.page-container')
+                let slug = $(container).find('.acc-gal').attr('data-slug')
+                $(container).find('.acc-list-item').each(function(idx, el){
+                    let name = $(el).attr('data-name')
+
+                    $(el).find('.loader').load(`/modulo-acomodacoes/${slug}  .acc-gal[data-name="${name}"] .acc-gal-list`, ()=>{
+
+                        // $(el).find('.loader .acc-gal-item').attr('data-name', name)
+
+                        // $(container).find('.acc-gal-wrap .acc-gal-list').append($(el).find('.loader .acc-gal-item'))
+    let galItem = $(el).find('.loader .acc-gal-item').clone();
+galItem.attr('data-name', name);
+$(container).find('.acc-gal-wrap .acc-gal-list').append(galItem);
+
+                    
+                        if(el === $('.acc-list-item').last().get(0)){
+                            setTimeout(()=>{                        
+                                // -------- ACOMODAÇÕES POPUP --------
+                                $('.acc-gal-item').clickSet((el)=>{
+
+
+                                       gsap.set($('.det-popup-gal'), {display: 'block', opacity: 0})
+                                    gsap.to($('.det-popup-gal'), {
+                                        opacity: 1,
+                                        duration: 0.5,
+                                        ease: 'power2.inOut'
+                                    })
+
+
+                        //console.log('### AcomodacoesVariables ###');
+                        // console.log(acomodacoesList);
+                        // console.log(selectedAcomodacao);
+
+                        // if(!acomodacoesList.includes(selectedAcomodacao))
+                            if(savedAcomodacao != selectedAcomodacao)
+                        {
+                            savedAcomodacao = selectedAcomodacao;
+                            
+
+                            acomodacoesList.push(selectedAcomodacao);
+
+
+                                 
+                                    // console.log("looooooooook in");
+                                    // console.log($('.det-pop-list *'));
+                                    // console.log($('.det-pop-thumb-list *'));
+                                    $('.det-pop-list *').remove()
+                                    $('.det-pop-thumb-list *').remove()
+                                    //  $('.det-pop-list ').empty();
+                                    //  $('.det-pop-thumb-list ').empty();
+                                    
+                                    // console.log("looooooooook out");
+
+                                    // $('.acc-gal-item.splide__slide').not('.splide__slide--clone').each(function(idx, elem){
+                                    //     $('.det-pop-list').append($(elem).find('.full-res-img').children().clone())
+                                    //     $('.det-pop-thumb-list').append($(elem).children().find('.contain-img'))
+                                    // })
+
+                                    //tiago
+                                    $('.acc-gal-item.splide__slide').not('.splide__slide--clone').each(function(idx, elem) {
+    // Clone and append the children of .full-res-img
+    $('.det-pop-list').append(
+        $(elem).find('.full-res-img').children().clone()
+    );
+
+    // Clone and append .contain-img itself (not just move it)
+    $('.det-pop-thumb-list').append(
+        $(elem).children().find('.contain-img').clone()
+    );
+});
+
+                                    $('.det-pop-list').children().wrap('<div class="det-pop-item-img"></div>')
+                                    $('.det-pop-list').children().wrap('<div class="det-pop-item splide__slide"></div>')
+
+                                    $('.det-pop-thumb-list').children().removeClass('contain-img').addClass('cover-img')
+                                    $('.det-pop-thumb-list').children().wrap('<div class="det-thumb-img-popup splide__slide"></div>')
+
+                                    let i = $(el).attr('aria-label').split(' ')[0]
+                                    $('.det-popup-content.splide').get(0).splide.refresh()
+                                    $('.det-popup-content.splide').get(0).splide.go(parseFloat(i)-1)
+                                    $('.det-popup-thumb-slide.splide').get(0).splide.refresh()
+                                    $('.det-popup-thumb-slide.splide').get(0).splide.go(parseFloat(i)-1)
+                                    
+                        }
+                                })
+
+                                resolve()
+                            }, 250)
+                        }
+                    })
+        
+                })
+            })
+        }
+
+
+          // -------- GALERIA DE ONDAS --------
+        if($('.page-container').find('.onda-list').length > 0){
+            let container = $('.page-container')
+            await new Promise(resolve => {
+                $(container).find('.onda-list').each(function(idx, el){
+                    
+                    let slug = $(el).attr('data-slug') 
+        
+                    $(el).load(`/galeria-de-ondas/${slug} .onda-card`, ()=>{
+                        resolve()
+                    })
+                })
+            })
+
+            await new Promise(resolve => {
+                console.log('') // load bearing console log, NÃO APAGAR PFV!!!!!!!!
+                setTimeout(()=>{
+                    resolve()
+                }, 750)
+            })
+        }

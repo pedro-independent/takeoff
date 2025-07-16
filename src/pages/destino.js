@@ -329,44 +329,6 @@ initCommonCode();
         })
        
 
-        // -------- LOAD ONDAS --------
-
-        if($('.page-container').find('.od-zona').length > 0){
-            let container = $('.page-container')
-            // await new Promise(resolve => {
-                $(container).find('.od-zona').each(function(idx, el){
-                    
-                    let slug = $(el).attr('data-slug') 
-        
-                    $(el).find('.loader').load(`/galeria-de-ondas/${slug} .blue-col`, ()=>{
-                        $(el).find('.blue-card').attr('data-card-zone', slug)
-
-
-
-                        if(el === $('.od-zona').last().get(0)){
-
-                            $(container).find('.od-zona').each(function(index, elem){
-                                if($(elem).find('.loader .w-dyn-empty').length > 0) $(elem).remove()
-                            })
-                            // resolve()
-                        }
-                    })
-        
-                })
-            // })
-
-
-            //Tiago: ahahahahaha, temos de ver o que fazer. Mas pelo menos ele avisa. Anyway, o Promisse não deve funcionar aqui
-            // await new Promise(resolve => {
-                console.log('') // load bearing console log, NÃO APAGAR PFV!!!!!!!!
-                setTimeout(()=>{
-                    $(container).find('.od-onda-wrap').append($('.blue-card'))
-                    // resolve()
-                }, 750)
-            // })
-
-            
-        }
 
         gsap.set($('.od-zona').not($('.od-zona').first()), {
             opacity: 0.6
@@ -406,63 +368,6 @@ initCommonCode();
 
 
 
-        // -------- ATRAÇÕES --------
-        if($('.page-container').find('.acc-list-item').length > 0){
-            // await new Promise(resolve => {
-                let container = $('.page-container')
-                let slug = $(container).find('.acc-gal').attr('data-slug')
-                $(container).find('.acc-list-item').each(function(idx, el){
-                    let name = $(el).attr('data-name')
-
-                    $(el).find('.loader').load(`/modulo-atracoes/${slug}  .acc-gal[data-name="${name}"] .acc-gal-list`, ()=>{
-
-                        $(el).find('.loader .acc-gal-item').attr('data-name', name)
-
-                        $(container).find('.acc-gal-wrap .acc-gal-list').append($(el).find('.loader .acc-gal-item'))
-    
-                        if(el === $('.acc-list-item').last().get(0)){
-                            setTimeout(()=>{
-                                // -------- ACOMODAÇÕES POPUP --------
-                                $('.acc-gal-item').clickSet((el)=>{
-
-                                    gsap.set($('.det-popup-gal'), {display: 'block', opacity: 0})
-                                    gsap.to($('.det-popup-gal'), {
-                                        opacity: 1,
-                                        duration: 0.5,
-                                        ease: 'power2.inOut'
-                                    })
-
-                                    
-                                    $('.det-pop-list *').remove()
-                                    $('.det-pop-thumb-list *').remove()
-                                    
-
-                                    $('.acc-gal-item.splide__slide').not('.splide__slide--clone').each(function(idx, elem){
-                                        $('.det-pop-list').append($(elem).find('.full-res-img').children().clone())
-                                        $('.det-pop-thumb-list').append($(elem).children().find('.contain-img'))
-                                    })
-
-                                    $('.det-pop-list').children().wrap('<div class="det-pop-item-img"></div>')
-                                    $('.det-pop-list').children().wrap('<div class="det-pop-item splide__slide"></div>')
-
-                                    $('.det-pop-thumb-list').children().removeClass('contain-img').addClass('cover-img')
-                                    $('.det-pop-thumb-list').children().wrap('<div class="det-thumb-img-popup splide__slide"></div>')
-
-                                    let i = $(el).attr('aria-label').split(' ')[0]
-                                    $('.det-popup-content.splide').get(0).splide.refresh()
-                                    $('.det-popup-content.splide').get(0).splide.go(parseFloat(i)-1)
-                                    $('.det-popup-thumb-slide.splide').get(0).splide.refresh()
-                                    $('.det-popup-thumb-slide.splide').get(0).splide.go(parseFloat(i)-1)
-                                })
-
-                                // resolve()
-                            }, 500)
-                        }
-                    })
-        
-                })
-            // })
-        }
 
         $('.page-container').find('.acc-content-item').first().addClass('active')
         $('.page-container').find('.acc-list-item').first().addClass('active')
@@ -1103,3 +1008,104 @@ initCommonCode();
 
 
 }
+
+
+
+        // -------- LOAD ONDAS --------
+
+        if($('.page-container').find('.od-zona').length > 0){
+            let container = $('.page-container')
+             await new Promise(resolve => {
+                $(container).find('.od-zona').each(function(idx, el){
+                    
+                    let slug = $(el).attr('data-slug') 
+        
+                    $(el).find('.loader').load(`/galeria-de-ondas/${slug} .blue-col`, ()=>{
+                        $(el).find('.blue-card').attr('data-card-zone', slug)
+
+
+
+                        if(el === $('.od-zona').last().get(0)){
+
+                            $(container).find('.od-zona').each(function(index, elem){
+                                if($(elem).find('.loader .w-dyn-empty').length > 0) $(elem).remove()
+                            })
+                             resolve()
+                        }
+                    })
+        
+                })
+             })
+
+
+            //Tiago: ahahahahaha, temos de ver o que fazer. Mas pelo menos ele avisa. Anyway, o Promisse não deve funcionar aqui
+             await new Promise(resolve => {
+                console.log('') // load bearing console log, NÃO APAGAR PFV!!!!!!!!
+                setTimeout(()=>{
+                    $(container).find('.od-onda-wrap').append($('.blue-card'))
+                     resolve()
+                }, 750)
+             })
+
+            
+        }
+
+
+        
+        // -------- ATRAÇÕES --------
+        if($('.page-container').find('.acc-list-item').length > 0){
+             await new Promise(resolve => {
+                let container = $('.page-container')
+                let slug = $(container).find('.acc-gal').attr('data-slug')
+                $(container).find('.acc-list-item').each(function(idx, el){
+                    let name = $(el).attr('data-name')
+
+                    $(el).find('.loader').load(`/modulo-atracoes/${slug}  .acc-gal[data-name="${name}"] .acc-gal-list`, ()=>{
+
+                        $(el).find('.loader .acc-gal-item').attr('data-name', name)
+
+                        $(container).find('.acc-gal-wrap .acc-gal-list').append($(el).find('.loader .acc-gal-item'))
+    
+                        if(el === $('.acc-list-item').last().get(0)){
+                            setTimeout(()=>{
+                                // -------- ACOMODAÇÕES POPUP --------
+                                $('.acc-gal-item').clickSet((el)=>{
+
+                                    gsap.set($('.det-popup-gal'), {display: 'block', opacity: 0})
+                                    gsap.to($('.det-popup-gal'), {
+                                        opacity: 1,
+                                        duration: 0.5,
+                                        ease: 'power2.inOut'
+                                    })
+
+                                    
+                                    $('.det-pop-list *').remove()
+                                    $('.det-pop-thumb-list *').remove()
+                                    
+
+                                    $('.acc-gal-item.splide__slide').not('.splide__slide--clone').each(function(idx, elem){
+                                        $('.det-pop-list').append($(elem).find('.full-res-img').children().clone())
+                                        $('.det-pop-thumb-list').append($(elem).children().find('.contain-img'))
+                                    })
+
+                                    $('.det-pop-list').children().wrap('<div class="det-pop-item-img"></div>')
+                                    $('.det-pop-list').children().wrap('<div class="det-pop-item splide__slide"></div>')
+
+                                    $('.det-pop-thumb-list').children().removeClass('contain-img').addClass('cover-img')
+                                    $('.det-pop-thumb-list').children().wrap('<div class="det-thumb-img-popup splide__slide"></div>')
+
+                                    let i = $(el).attr('aria-label').split(' ')[0]
+                                    $('.det-popup-content.splide').get(0).splide.refresh()
+                                    $('.det-popup-content.splide').get(0).splide.go(parseFloat(i)-1)
+                                    $('.det-popup-thumb-slide.splide').get(0).splide.refresh()
+                                    $('.det-popup-thumb-slide.splide').get(0).splide.go(parseFloat(i)-1)
+                                })
+
+                                 resolve()
+                            }, 500)
+                        }
+                    })
+        
+                })
+             })
+        }

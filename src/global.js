@@ -211,6 +211,60 @@ Ancoras
 Muita coisa geral
 *****************************************************************************************/
 
+
+/* Page Transition */
+function initPageTransitions() {
+    $(document).ready(function() {
+
+        gsap.to(".load-transition-item", {
+            yPercent: -100,
+            duration: 0.75,
+            ease: "power3.inOut",
+            transformOrigin: "bottom",
+            onComplete: () => {
+                gsap.set(".load-transition", { display: "none" });
+            }
+        });
+
+        $("a").on("click", function(e) {
+            if (
+                $(this).prop("hostname") === window.location.host &&
+                $(this).attr("href").indexOf("#") === -1 &&
+                $(this).attr("target") !== "_blank"
+            ) {
+                e.preventDefault();
+                let destination = $(this).attr("href");
+                
+                gsap.set(".load-transition", { display: "block" });
+
+                gsap.fromTo(
+                    ".load-transition-item", {
+                        yPercent: -100
+                    }, {
+                        yPercent: 0,
+                        duration: 0.75,
+                        ease: "power3.inOut",
+                        transformOrigin: "top",
+                        onComplete: () => {
+                            window.location = destination;
+                        }
+                    }
+                );
+            }
+        });
+
+        window.onpageshow = function(event) {
+            if (event.persisted) {
+                window.location.reload();
+            }
+        };
+    });
+}
+
+initPageTransitions();
+
+
+
   function navScaleDown() {
     gsap.to($(".nav-holder"), {
       y: -$(".nav-banner").outerHeight(),

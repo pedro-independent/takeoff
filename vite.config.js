@@ -11,6 +11,7 @@ export default defineConfig({
 		},
 	},
 	build: {
+		target: 'esnext',
 		minify: true, // Minifies the output for better performance
 		manifest: true,
 		rollupOptions: {
@@ -18,7 +19,7 @@ export default defineConfig({
 			output: {
 				format: 'es', // UMD format maximizes compatibility when loaded via a <script> tag
 				entryFileNames: 'main.js', // Force the output filename to be 'main.js'
-				esModule: false, // Avoids adding ES module markers since we’re using UMD
+				//esModule: false, // Avoids adding ES module markers since we’re using UMD
 				compact: true, // Produces a compact, minimized output bundle
 			},
 		},

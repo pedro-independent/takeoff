@@ -2,7 +2,7 @@
 // -------------------------------- GLOBAL VARS/VARIABLES
 
 
-
+async function start() {
 switch (document.querySelector('body')?.dataset.page) 
 {
   case 'home':{
@@ -18,7 +18,7 @@ switch (document.querySelector('body')?.dataset.page)
     break;
 
   case 'destinos':{
-    const destinos = await import("./pages/destinos");
+    const destinos = await import("./pages/destinos"); 
         destinos.runDestinos();
         }
     break;
@@ -68,4 +68,6 @@ switch (document.querySelector('body')?.dataset.page)
   default:
     console.log('Code not defined!');
     
-}
+}}
+
+start();

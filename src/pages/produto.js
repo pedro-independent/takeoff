@@ -17,13 +17,6 @@ mixitup.use(multifilter);
 import { initCommonCode, createAnchor, colors } from '../global.js';
 import { ResortData, sheetInit, globalVarSurfistaOrMotorista } from '../excelProcessing.js';
 
-
-      // -------- ACOMODAÇÕES --------
-        let selectedAcomodacao ='primeiro';
-        let savedAcomodacao ="";
-        let acomodacoesList = [];
-
-     
 export function runProduto()
 {
 
@@ -41,7 +34,31 @@ initCommonCode();
             $('.consulta-page-wrap, .consulta-wrap, .consulta-hero-wrap').removeClass('editor')
         }
 
-      
+        // -------- GALERIA DE ONDAS --------
+        carregarOndas();
+
+
+        // if($('.page-container').find('.onda-list').length > 0){
+        //     let container = $('.page-container')
+        //     await new Promise(resolve => {
+        //         $(container).find('.onda-list').each(function(idx, el){
+                    
+        //             let slug = $(el).attr('data-slug') 
+        
+        //             $(el).load(`/galeria-de-ondas/${slug} .onda-card`, ()=>{
+        //                 resolve()
+        //             })
+        //         })
+        //     })
+
+        //     await new Promise(resolve => {
+        //         console.log('') // load bearing console log, NÃO APAGAR PFV!!!!!!!!
+        //         setTimeout(()=>{
+        //             resolve()
+        //         }, 750)
+        //     })
+        // }
+
 
 
         // ................................ VIDEOS ................................
@@ -293,7 +310,109 @@ initCommonCode();
         }
 
 
-  
+        // -------- ACOMODAÇÕES --------
+        let selectedAcomodacao ='primeiro';
+        let savedAcomodacao ="";
+        let acomodacoesList = [];
+        
+
+        if($('.page-container').find('.acc-list-item').length > 0){
+            carregarAcomodacoes();
+//             await new Promise(resolve => {
+//                 let container = $('.page-container')
+//                 let slug = $(container).find('.acc-gal').attr('data-slug')
+//                 $(container).find('.acc-list-item').each(function(idx, el){
+//                     let name = $(el).attr('data-name')
+
+//                     $(el).find('.loader').load(`/modulo-acomodacoes/${slug}  .acc-gal[data-name="${name}"] .acc-gal-list`, ()=>{
+
+//                         // $(el).find('.loader .acc-gal-item').attr('data-name', name)
+
+//                         // $(container).find('.acc-gal-wrap .acc-gal-list').append($(el).find('.loader .acc-gal-item'))
+//     let galItem = $(el).find('.loader .acc-gal-item').clone();
+// galItem.attr('data-name', name);
+// $(container).find('.acc-gal-wrap .acc-gal-list').append(galItem);
+
+                    
+//                         if(el === $('.acc-list-item').last().get(0)){
+//                             setTimeout(()=>{                        
+//                                 // -------- ACOMODAÇÕES POPUP --------
+//                                 $('.acc-gal-item').clickSet((el)=>{
+
+
+//                                        gsap.set($('.det-popup-gal'), {display: 'block', opacity: 0})
+//                                     gsap.to($('.det-popup-gal'), {
+//                                         opacity: 1,
+//                                         duration: 0.5,
+//                                         ease: 'power2.inOut'
+//                                     })
+
+
+//                         //console.log('### AcomodacoesVariables ###');
+//                         // console.log(acomodacoesList);
+//                         // console.log(selectedAcomodacao);
+
+//                         // if(!acomodacoesList.includes(selectedAcomodacao))
+//                             if(savedAcomodacao != selectedAcomodacao)
+//                         {
+//                             savedAcomodacao = selectedAcomodacao;
+                            
+
+//                             acomodacoesList.push(selectedAcomodacao);
+
+
+                                 
+//                                     // console.log("looooooooook in");
+//                                     // console.log($('.det-pop-list *'));
+//                                     // console.log($('.det-pop-thumb-list *'));
+//                                     $('.det-pop-list *').remove()
+//                                     $('.det-pop-thumb-list *').remove()
+//                                     //  $('.det-pop-list ').empty();
+//                                     //  $('.det-pop-thumb-list ').empty();
+                                    
+//                                     // console.log("looooooooook out");
+
+//                                     // $('.acc-gal-item.splide__slide').not('.splide__slide--clone').each(function(idx, elem){
+//                                     //     $('.det-pop-list').append($(elem).find('.full-res-img').children().clone())
+//                                     //     $('.det-pop-thumb-list').append($(elem).children().find('.contain-img'))
+//                                     // })
+
+//                                     //tiago
+//                                     $('.acc-gal-item.splide__slide').not('.splide__slide--clone').each(function(idx, elem) {
+//     // Clone and append the children of .full-res-img
+//     $('.det-pop-list').append(
+//         $(elem).find('.full-res-img').children().clone()
+//     );
+
+//     // Clone and append .contain-img itself (not just move it)
+//     $('.det-pop-thumb-list').append(
+//         $(elem).children().find('.contain-img').clone()
+//     );
+// });
+
+//                                     $('.det-pop-list').children().wrap('<div class="det-pop-item-img"></div>')
+//                                     $('.det-pop-list').children().wrap('<div class="det-pop-item splide__slide"></div>')
+
+//                                     $('.det-pop-thumb-list').children().removeClass('contain-img').addClass('cover-img')
+//                                     $('.det-pop-thumb-list').children().wrap('<div class="det-thumb-img-popup splide__slide"></div>')
+
+//                                     let i = $(el).attr('aria-label').split(' ')[0]
+//                                     $('.det-popup-content.splide').get(0).splide.refresh()
+//                                     $('.det-popup-content.splide').get(0).splide.go(parseFloat(i)-1)
+//                                     $('.det-popup-thumb-slide.splide').get(0).splide.refresh()
+//                                     $('.det-popup-thumb-slide.splide').get(0).splide.go(parseFloat(i)-1)
+                                    
+//                         }
+//                                 })
+
+//                                 resolve()
+//                             }, 250)
+//                         }
+//                     })
+        
+//                 })
+//             })
+        }
         
         $('.page-container').find('.acc-content-item').first().addClass('active')
         $('.page-container').find('.acc-list-item').first().addClass('active')
@@ -1664,81 +1783,308 @@ Para poder limpar o valor total sempre que se muda a selecção */
 
        
 
-        // -------- THUMB GALLERY --------
-        //$('.det-thumb-wrap script').remove()
+        // // -------- THUMB GALLERY --------
+        // //$('.det-thumb-wrap script').remove()
 
-        if($('.page-container').find('.det-thumb-wrap.splide').first().length > 0 && $('.page-container').find('.det-thumb-wrap .splide__slide').first().length > 0){
+        // if($('.page-container').find('.det-thumb-wrap.splide').first().length > 0 && $('.page-container').find('.det-thumb-wrap .splide__slide').first().length > 0){
 
-            var thumbSplide = new Splide($('.page-container').find('.det-thumb-wrap.splide').first().get(0), {
-                type: 'loop',
-                direction: 'ltr',
+        //     var thumbSplide = new Splide($('.page-container').find('.det-thumb-wrap.splide').first().get(0), {
+        //         type: 'loop',
+        //         direction: 'ltr',
+    
+        //         autoWidth: true,
+    
+        //         // autoHeight: true,
+        //         // heightRatio: 1,
+    
+        //         drag: 'free',
+        //         flickPower: 150,
+    
+        //         arrows: false,
+        //         speed: 1000,
+    
+        //         // arrows: {
+        //         //     prev: $('.onda-slide-btn.prev')[0],
+        //         //     next: $('.onda-slide-btn.next')[0]
+        //         // },
+        //         pagination: false,
+    
+    
+        //     } );
+    
+        //     thumbSplide.on( 'ready', function () {
+        //         setTimeout(()=>{
+        //             thumbSplide.go('+1')
+        //             thumbSplide.go('-1')
+
+        //                 // -------- THUMBS HERO POPUP CLICK--------
+        //                 $('.det-thumb-img').clickSet((el)=>{
+
+        //                     gsap.set($('.det-popup-gal'), {display: 'block', opacity: 0})
+        //                     gsap.to($('.det-popup-gal'), {
+        //                         opacity: 1,
+        //                         duration: 0.5,
+        //                         ease: 'power2.inOut'
+        //                     })
+
+                            
+        //                     $('.det-pop-list *').remove()
+        //                     $('.det-pop-thumb-list *').remove()
+                            
+
+        //                     $('.det-thumb-img').not('.splide__slide--clone').each(function(idx, elem){
+        //                         $('.det-pop-list').append($(elem).find('.full-res-img').children().clone())
+        //                         $('.det-pop-thumb-list').append($(elem).clone())
+        //                     })
+
+        //                     $('.det-pop-list').children().wrap('<div class="det-pop-item-img"></div>')
+        //                     $('.det-pop-list').children().wrap('<div class="det-pop-item splide__slide"></div>')
+
+        //                     $('.det-pop-thumb-list').children().removeClass('det-thumb-img')
+        //                     $('.det-pop-thumb-list').children().addClass('det-thumb-img-popup')
+                            
+
+        //                     let i = $(el).attr('aria-label').split(' ')[0]
+        //                     $('.det-popup-content.splide').get(0).splide.refresh()
+        //                     $('.det-popup-content.splide').get(0).splide.go(parseFloat(i)-1)
+        //                     $('.det-popup-thumb-slide.splide').get(0).splide.refresh()
+        //                     $('.det-popup-thumb-slide.splide').get(0).splide.go(parseFloat(i)-1)
+        //                 })
+        //         }, 250)
+        //     } );
+        //     thumbSplide.mount()
+        // }
+        
+
+        // // -------- GALLERY --------
+        // if($('.page-container').find('.onda-gal-item.splide').first().length > 0 && $('.page-container').find('.onda-gal-item .splide__slide').first().length > 0){
+        //     var galSplide = new Splide($('.page-container').find('.onda-gal-item.splide').first().get(0), {
+        //         type: 'loop',
+        //         direction: 'ltr',
+    
+        //         autoWidth: true,
+    
+        //         // autoHeight: true,
+        //         // heightRatio: 1,
+    
+        //         drag: 'free',
+        //         // rewind: 'true',
+        //         // flickPower: 150,
+    
+        //         arrows: true,
+        //         speed: 1000,
+    
+        //         focus: 'center',
+    
+        //         // arrows: {
+        //         //     prev: $('.onda-slide-btn.prev')[0],
+        //         //     next: $('.onda-slide-btn.next')[0]
+        //         // },
+        //         pagination: false,
+    
+    
+        //     } );
+    
+        //     galSplide.on( 'ready', function () {
+        //         setTimeout(()=>{
+        //             galSplide.go('+1')
+        //             galSplide.go('-1')
+        //         }, 250)
+        //     } );
+        //     galSplide.mount()
+        // }
+
+
+        // // // -------- COMODIDADES GALLERY --------
+
+        // if($('.page-container').find('.fac-splide.splide').first().length > 0 && $('.page-container').find('.fac-splide .splide__slide').first().length > 0){
+        //     var commSplide = new Splide($('.page-container').find('.fac-splide.splide').first().get(0), {
+        //         type: 'slide',
+        //         direction: 'ltr',
+    
+        //         autoWidth: true,
+    
+        //         // autoHeight: true,
+        //         // heightRatio: 1,
+    
+        //         // drag: 'free',
+        //         // flickPower: 150,
+    
+        //         arrows: true,
+        //         speed: 1000,
+    
+        //         pagination: false,
+    
+        //     } );
+    
+        //     commSplide.mount()
+        // }
+
+
+        // // -------- ATRAÇÕES GALLERY --------
+        // if($('.page-container').find('.acc-left-wrap.splide').first().length > 0 && $('.page-container').find('.acc-left-wrap .splide__slide').first().length > 0){
+        //     if($(window).outerWidth() < 992){ // DESKTOP
+        //         let accTitleSplide = new Splide($('.page-container').find('.acc-left-wrap.splide').first().get(0), {
+        //             type: 'slide',
+        //             direction: 'ltr',
+        //             autoWidth: true,
+        //             arrows: false,
+        //             speed: 1000,
+        //             pagination: false,
+        //         } );
+        
+        //         accTitleSplide.mount()
+        //     }
+            
+        // }
+
+        // if($('.page-container').find('.acc-gal-wrap.splide').first().length > 0 && $('.page-container').find('.acc-gal-wrap .splide__slide').first().length > 0){
+        //     let accGalSplide = new Splide($('.page-container').find('.acc-gal-wrap.splide').first().get(0), {
+        //         type: 'slide',
+        //         direction: 'ltr',
+        //         autoWidth: true,
+        //         arrows: false,
+        //         speed: 1000,
+        //         pagination: false,
+        //     } );
+
+        //     accGalSplide.mount()
+
+        //     $('.acc-list-item').clickSet(function(el){
+        //         let name = $(el).attr('data-name')
+
+        //         setTimeout(()=>{
+        //             gsap.to($('.acc-gal-bottom'), {
+        //                 opacity: 1,
+        //                 duration: 0.3,
+        //                 delay: 0.4,
+        //                 ease: 'power3.inOut',
+        //             })
+        //             gsap.to($('.acc-gal-bottom'), {
+        //                 opacity: 0,
+        //                 duration: 0.3,
+        //                 ease: 'power3.inOut',
+        //                 onComplete: ()=>{
+        //                     $('.acc-gal-item').not(`[data-name="${name}"]`).removeClass('splide__slide')
+        //                     $('.acc-gal-item').not(`[data-name="${name}"]`).removeAttr('id')
+        //                     $('.acc-gal-item').not(`[data-name="${name}"]`).removeAttr('role')
+        //                     $('.acc-gal-item').not(`[data-name="${name}"]`).removeAttr('aria-roledescription')
+        //                     $('.acc-gal-item').not(`[data-name="${name}"]`).removeAttr('aria-label')
+
+        //                     $(`.acc-gal-item[data-name="${name}"]`).addClass('splide__slide')
+
+        //                     gsap.set($(`.acc-gal-item[data-name="${name}"]`), {
+        //                         display: 'flex'
+        //                     })
+
+        //                     accGalSplide.go(0)
+        //                     accGalSplide.refresh()
+
+        //                     gsap.set($('.acc-gal-item').not(`[data-name="${name}"]`), {
+        //                         display: 'none'
+        //                     })
+
+                            
+        //                 }
+        //             })
+
+        //         }, 10)
+        //     })
+        // }
+
+        // -------- TESTEMUNHOS --------
+        if($('.page-container').find('.test-holder.splide').length > 0 && $('.page-container').find('.test-holder .splide__slide').first().length > 0){
+            $('.test-item').removeClass('.is-active')
+            if($('.prog-bar-holder').length == 1) gsap.set($('.test-prog'), {display: 'none'})
+            var testSplide = new Splide($('.page-container').find('.test-holder.splide').first().get(0), {
+                type: 'fade',
     
                 autoWidth: true,
     
                 // autoHeight: true,
-                // heightRatio: 1,
+                // heightRatio: 1
     
-                drag: 'free',
-                flickPower: 150,
+                pauseOnFocus: false,
+                pauseOnHover: false,
+                resetProgress: false,
     
                 arrows: false,
-                speed: 1000,
     
-                // arrows: {
-                //     prev: $('.onda-slide-btn.prev')[0],
-                //     next: $('.onda-slide-btn.next')[0]
-                // },
+                autoplay: true,
+                rewind: true,
+                rewindSpeed: 1,
+                speed: 500,
+                interval: 12000,
+                easing: 'cubic-bezier(0.65, 0, 0.35, 1)',
+    
                 pagination: false,
-    
-    
             } );
     
-            thumbSplide.on( 'ready', function () {
-                setTimeout(()=>{
-                    thumbSplide.go('+1')
-                    thumbSplide.go('-1')
-
-                        // -------- THUMBS HERO POPUP CLICK--------
-                        $('.det-thumb-img').clickSet((el)=>{
-
-                            gsap.set($('.det-popup-gal'), {display: 'block', opacity: 0})
-                            gsap.to($('.det-popup-gal'), {
-                                opacity: 1,
-                                duration: 0.5,
-                                ease: 'power2.inOut'
-                            })
-
-                            
-                            $('.det-pop-list *').remove()
-                            $('.det-pop-thumb-list *').remove()
-                            
-
-                            $('.det-thumb-img').not('.splide__slide--clone').each(function(idx, elem){
-                                $('.det-pop-list').append($(elem).find('.full-res-img').children().clone())
-                                $('.det-pop-thumb-list').append($(elem).clone())
-                            })
-
-                            $('.det-pop-list').children().wrap('<div class="det-pop-item-img"></div>')
-                            $('.det-pop-list').children().wrap('<div class="det-pop-item splide__slide"></div>')
-
-                            $('.det-pop-thumb-list').children().removeClass('det-thumb-img')
-                            $('.det-pop-thumb-list').children().addClass('det-thumb-img-popup')
-                            
-
-                            let i = $(el).attr('aria-label').split(' ')[0]
-                            $('.det-popup-content.splide').get(0).splide.refresh()
-                            $('.det-popup-content.splide').get(0).splide.go(parseFloat(i)-1)
-                            $('.det-popup-thumb-slide.splide').get(0).splide.refresh()
-                            $('.det-popup-thumb-slide.splide').get(0).splide.go(parseFloat(i)-1)
-                        })
-                }, 250)
-            } );
-            thumbSplide.mount()
+            $('.page-container').find('.test-holder').find('.prog-bar-scrub').each(function(idx, el){
+                el.scrubTL = gsap.timeline({
+                    paused: true,
+                })
+                el.scrubTL.set(el, {
+                    opacity: 1,
+                    width: '0%',
+                })
+                el.scrubTL.to(el, {
+                    width: '100%',
+                    duration: 12,
+                    ease: 'linear'
+                })
+            })
+    
+            testSplide.on(['mounted', 'active'],()=>{
+                let scrub = $('.page-container').find('.test-holder').find('.prog-bar-scrub')
+    
+                if(scrub.get(testSplide.index) !== undefined){
+                    scrub.get(testSplide.index).scrubTL.restart()
+                    scrub.get(testSplide.index).scrubTL.play()
+                }
+                
+                gsap.to(scrub.not(scrub.get(testSplide.index)), {
+                    opacity: 0,
+                    duration: 0.5,
+                    ease: 'power2.inOut'
+                })
+            })
+    
+            testSplide.mount()
+    
+            $('.page-container').find('.test-holder').find('.prog-bar-holder').clickSet(function(el){
+                let idx = $(el).index()
+                testSplide.go(idx)
+            })
         }
-        
 
-        // // -------- GALLERY --------
-        if($('.page-container').find('.onda-gal-item.splide').first().length > 0 && $('.page-container').find('.onda-gal-item .splide__slide').first().length > 0){
+
+    }
+    
+    
+    
+    async function carregarOndas() {
+    if($('.page-container').find('.onda-list').length > 0){
+        let container = $('.page-container')
+        await new Promise(resolve => {
+            let total = $(container).find('.onda-list').length;
+            let loaded = 0;
+
+            $(container).find('.onda-list').each(function(idx, el){
+                let slug = $(el).attr('data-slug');
+                
+
+                $(el).load(`/galeria-de-ondas/${slug} .onda-card`, ()=>{
+                    loaded++;
+                    
+                    if (loaded === total) resolve();
+                });
+            });
+        });
+
+           // // -------- GALLERY --------
+
+          if($('.page-container').find('.onda-gal-item.splide').first().length > 0 && $('.page-container').find('.onda-gal-item .splide__slide').first().length > 0){
             var galSplide = new Splide($('.page-container').find('.onda-gal-item.splide').first().get(0), {
                 type: 'loop',
                 direction: 'ltr',
@@ -1776,7 +2122,111 @@ Para poder limpar o valor total sempre que se muda a selecção */
         }
 
 
-        // // -------- COMODIDADES GALLERY --------
+        await new Promise(resolve => {
+            console.log('') // load bearing console log, NÃO APAGAR PFV!!!!!!!!
+            setTimeout(()=> resolve(), 750);
+        });
+    }
+}
+
+
+
+async function carregarAcomodacoes() {
+    await new Promise(resolve => {
+                let container = $('.page-container')
+                let slug = $(container).find('.acc-gal').attr('data-slug')
+                $(container).find('.acc-list-item').each(function(idx, el){
+                    let name = $(el).attr('data-name')
+
+                    $(el).find('.loader').load(`/modulo-acomodacoes/${slug}  .acc-gal[data-name="${name}"] .acc-gal-list`, ()=>{
+
+                        // $(el).find('.loader .acc-gal-item').attr('data-name', name)
+
+                        // $(container).find('.acc-gal-wrap .acc-gal-list').append($(el).find('.loader .acc-gal-item'))
+    let galItem = $(el).find('.loader .acc-gal-item').clone();
+galItem.attr('data-name', name);
+$(container).find('.acc-gal-wrap .acc-gal-list').append(galItem);
+
+                    
+                        if(el === $('.acc-list-item').last().get(0)){
+                            setTimeout(()=>{                        
+                                // -------- ACOMODAÇÕES POPUP --------
+                                $('.acc-gal-item').clickSet((el)=>{
+
+
+                                       gsap.set($('.det-popup-gal'), {display: 'block', opacity: 0})
+                                    gsap.to($('.det-popup-gal'), {
+                                        opacity: 1,
+                                        duration: 0.5,
+                                        ease: 'power2.inOut'
+                                    })
+
+
+                        //console.log('### AcomodacoesVariables ###');
+                        // console.log(acomodacoesList);
+                        // console.log(selectedAcomodacao);
+
+                        // if(!acomodacoesList.includes(selectedAcomodacao))
+                            if(savedAcomodacao != selectedAcomodacao)
+                        {
+                            savedAcomodacao = selectedAcomodacao;
+                            
+
+                            acomodacoesList.push(selectedAcomodacao);
+
+
+                                 
+                                    // console.log("looooooooook in");
+                                    // console.log($('.det-pop-list *'));
+                                    // console.log($('.det-pop-thumb-list *'));
+                                    $('.det-pop-list *').remove()
+                                    $('.det-pop-thumb-list *').remove()
+                                    //  $('.det-pop-list ').empty();
+                                    //  $('.det-pop-thumb-list ').empty();
+                                    
+                                    // console.log("looooooooook out");
+
+                                    // $('.acc-gal-item.splide__slide').not('.splide__slide--clone').each(function(idx, elem){
+                                    //     $('.det-pop-list').append($(elem).find('.full-res-img').children().clone())
+                                    //     $('.det-pop-thumb-list').append($(elem).children().find('.contain-img'))
+                                    // })
+
+                                    //tiago
+                                    $('.acc-gal-item.splide__slide').not('.splide__slide--clone').each(function(idx, elem) {
+    // Clone and append the children of .full-res-img
+    $('.det-pop-list').append(
+        $(elem).find('.full-res-img').children().clone()
+    );
+
+    // Clone and append .contain-img itself (not just move it)
+    $('.det-pop-thumb-list').append(
+        $(elem).children().find('.contain-img').clone()
+    );
+});
+
+                                    $('.det-pop-list').children().wrap('<div class="det-pop-item-img"></div>')
+                                    $('.det-pop-list').children().wrap('<div class="det-pop-item splide__slide"></div>')
+
+                                    $('.det-pop-thumb-list').children().removeClass('contain-img').addClass('cover-img')
+                                    $('.det-pop-thumb-list').children().wrap('<div class="det-thumb-img-popup splide__slide"></div>')
+
+                                    let i = $(el).attr('aria-label').split(' ')[0]
+                                    $('.det-popup-content.splide').get(0).splide.refresh()
+                                    $('.det-popup-content.splide').get(0).splide.go(parseFloat(i)-1)
+                                    $('.det-popup-thumb-slide.splide').get(0).splide.refresh()
+                                    $('.det-popup-thumb-slide.splide').get(0).splide.go(parseFloat(i)-1)
+                                    
+                        }
+                                })
+
+                                resolve()
+                            }, 250)
+                        }
+                    })
+        
+                })
+            })
+         // // -------- COMODIDADES GALLERY --------
 
         if($('.page-container').find('.fac-splide.splide').first().length > 0 && $('.page-container').find('.fac-splide .splide__slide').first().length > 0){
             var commSplide = new Splide($('.page-container').find('.fac-splide.splide').first().get(0), {
@@ -1873,193 +2323,77 @@ Para poder limpar o valor total sempre que se muda a selecção */
             })
         }
 
-        // -------- TESTEMUNHOS --------
-        if($('.page-container').find('.test-holder.splide').length > 0 && $('.page-container').find('.test-holder .splide__slide').first().length > 0){
-            $('.test-item').removeClass('.is-active')
-            if($('.prog-bar-holder').length == 1) gsap.set($('.test-prog'), {display: 'none'})
-            var testSplide = new Splide($('.page-container').find('.test-holder.splide').first().get(0), {
-                type: 'fade',
+        // -------- THUMB GALLERY --------
+        //$('.det-thumb-wrap script').remove()
+
+        if($('.page-container').find('.det-thumb-wrap.splide').first().length > 0 && $('.page-container').find('.det-thumb-wrap .splide__slide').first().length > 0){
+
+            var thumbSplide = new Splide($('.page-container').find('.det-thumb-wrap.splide').first().get(0), {
+                type: 'loop',
+                direction: 'ltr',
     
                 autoWidth: true,
     
                 // autoHeight: true,
-                // heightRatio: 1
+                // heightRatio: 1,
     
-                pauseOnFocus: false,
-                pauseOnHover: false,
-                resetProgress: false,
+                drag: 'free',
+                flickPower: 150,
     
                 arrows: false,
+                speed: 1000,
     
-                autoplay: true,
-                rewind: true,
-                rewindSpeed: 1,
-                speed: 500,
-                interval: 12000,
-                easing: 'cubic-bezier(0.65, 0, 0.35, 1)',
-    
+                // arrows: {
+                //     prev: $('.onda-slide-btn.prev')[0],
+                //     next: $('.onda-slide-btn.next')[0]
+                // },
                 pagination: false,
+    
+    
             } );
     
-            $('.page-container').find('.test-holder').find('.prog-bar-scrub').each(function(idx, el){
-                el.scrubTL = gsap.timeline({
-                    paused: true,
-                })
-                el.scrubTL.set(el, {
-                    opacity: 1,
-                    width: '0%',
-                })
-                el.scrubTL.to(el, {
-                    width: '100%',
-                    duration: 12,
-                    ease: 'linear'
-                })
-            })
-    
-            testSplide.on(['mounted', 'active'],()=>{
-                let scrub = $('.page-container').find('.test-holder').find('.prog-bar-scrub')
-    
-                if(scrub.get(testSplide.index) !== undefined){
-                    scrub.get(testSplide.index).scrubTL.restart()
-                    scrub.get(testSplide.index).scrubTL.play()
-                }
-                
-                gsap.to(scrub.not(scrub.get(testSplide.index)), {
-                    opacity: 0,
-                    duration: 0.5,
-                    ease: 'power2.inOut'
-                })
-            })
-    
-            testSplide.mount()
-    
-            $('.page-container').find('.test-holder').find('.prog-bar-holder').clickSet(function(el){
-                let idx = $(el).index()
-                testSplide.go(idx)
-            })
-        }
+            thumbSplide.on( 'ready', function () {
+                console.log('log THISSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS');
+                setTimeout(()=>{
+                    thumbSplide.go('+1')
+                    thumbSplide.go('-1')
 
+                        // -------- THUMBS HERO POPUP CLICK--------
+                        $('.det-thumb-img').clickSet((el)=>{
 
-    }   
-    
-    
-    
-    if($('.page-container').find('.acc-list-item').length > 0){
-            // await new Promise(resolve => {
-                let container = $('.page-container')
-                let slug = $(container).find('.acc-gal').attr('data-slug')
-                $(container).find('.acc-list-item').each(function(idx, el){
-                    let name = $(el).attr('data-name')
+                            gsap.set($('.det-popup-gal'), {display: 'block', opacity: 0})
+                            gsap.to($('.det-popup-gal'), {
+                                opacity: 1,
+                                duration: 0.5,
+                                ease: 'power2.inOut'
+                            })
 
-                    $(el).find('.loader').load(`/modulo-acomodacoes/${slug}  .acc-gal[data-name="${name}"] .acc-gal-list`, ()=>{
-
-                        // $(el).find('.loader .acc-gal-item').attr('data-name', name)
-
-                        // $(container).find('.acc-gal-wrap .acc-gal-list').append($(el).find('.loader .acc-gal-item'))
-    let galItem = $(el).find('.loader .acc-gal-item').clone();
-galItem.attr('data-name', name);
-$(container).find('.acc-gal-wrap .acc-gal-list').append(galItem);
-
-                    
-                        if(el === $('.acc-list-item').last().get(0)){
-                            setTimeout(()=>{                        
-                                // -------- ACOMODAÇÕES POPUP --------
-                                $('.acc-gal-item').clickSet((el)=>{
-
-
-                                       gsap.set($('.det-popup-gal'), {display: 'block', opacity: 0})
-                                    gsap.to($('.det-popup-gal'), {
-                                        opacity: 1,
-                                        duration: 0.5,
-                                        ease: 'power2.inOut'
-                                    })
-
-
-                        //console.log('### AcomodacoesVariables ###');
-                        // console.log(acomodacoesList);
-                        // console.log(selectedAcomodacao);
-
-                        // if(!acomodacoesList.includes(selectedAcomodacao))
-                            if(savedAcomodacao != selectedAcomodacao)
-                        {
-                            savedAcomodacao = selectedAcomodacao;
+                            
+                            $('.det-pop-list *').remove()
+                            $('.det-pop-thumb-list *').remove()
                             
 
-                            acomodacoesList.push(selectedAcomodacao);
+                            $('.det-thumb-img').not('.splide__slide--clone').each(function(idx, elem){
+                                $('.det-pop-list').append($(elem).find('.full-res-img').children().clone())
+                                $('.det-pop-thumb-list').append($(elem).clone())
+                            })
 
+                            $('.det-pop-list').children().wrap('<div class="det-pop-item-img"></div>')
+                            $('.det-pop-list').children().wrap('<div class="det-pop-item splide__slide"></div>')
 
-                                 
-                                    // console.log("looooooooook in");
-                                    // console.log($('.det-pop-list *'));
-                                    // console.log($('.det-pop-thumb-list *'));
-                                    $('.det-pop-list *').remove()
-                                    $('.det-pop-thumb-list *').remove()
-                                    //  $('.det-pop-list ').empty();
-                                    //  $('.det-pop-thumb-list ').empty();
-                                    
-                                    // console.log("looooooooook out");
+                            $('.det-pop-thumb-list').children().removeClass('det-thumb-img')
+                            $('.det-pop-thumb-list').children().addClass('det-thumb-img-popup')
+                            
 
-                                    // $('.acc-gal-item.splide__slide').not('.splide__slide--clone').each(function(idx, elem){
-                                    //     $('.det-pop-list').append($(elem).find('.full-res-img').children().clone())
-                                    //     $('.det-pop-thumb-list').append($(elem).children().find('.contain-img'))
-                                    // })
-
-                                    //tiago
-                                    $('.acc-gal-item.splide__slide').not('.splide__slide--clone').each(function(idx, elem) {
-    // Clone and append the children of .full-res-img
-    $('.det-pop-list').append(
-        $(elem).find('.full-res-img').children().clone()
-    );
-
-    // Clone and append .contain-img itself (not just move it)
-    $('.det-pop-thumb-list').append(
-        $(elem).children().find('.contain-img').clone()
-    );
-});
-
-                                    $('.det-pop-list').children().wrap('<div class="det-pop-item-img"></div>')
-                                    $('.det-pop-list').children().wrap('<div class="det-pop-item splide__slide"></div>')
-
-                                    $('.det-pop-thumb-list').children().removeClass('contain-img').addClass('cover-img')
-                                    $('.det-pop-thumb-list').children().wrap('<div class="det-thumb-img-popup splide__slide"></div>')
-
-                                    let i = $(el).attr('aria-label').split(' ')[0]
-                                    $('.det-popup-content.splide').get(0).splide.refresh()
-                                    $('.det-popup-content.splide').get(0).splide.go(parseFloat(i)-1)
-                                    $('.det-popup-thumb-slide.splide').get(0).splide.refresh()
-                                    $('.det-popup-thumb-slide.splide').get(0).splide.go(parseFloat(i)-1)
-                                    
-                        }
-                                })
-
-                                // resolve()
-                            }, 250)
-                        }
-                    })
-        
-                })
-            // })
+                            let i = $(el).attr('aria-label').split(' ')[0]
+                            $('.det-popup-content.splide').get(0).splide.refresh()
+                            $('.det-popup-content.splide').get(0).splide.go(parseFloat(i)-1)
+                            $('.det-popup-thumb-slide.splide').get(0).splide.refresh()
+                            $('.det-popup-thumb-slide.splide').get(0).splide.go(parseFloat(i)-1)
+                        })
+                }, 250)
+            } );
+            thumbSplide.mount()
         }
 
-
-          // -------- GALERIA DE ONDAS --------
-        if($('.page-container').find('.onda-list').length > 0){
-            let container = $('.page-container')
-            // await new Promise(resolve => {
-                $(container).find('.onda-list').each(function(idx, el){
-                    
-                    let slug = $(el).attr('data-slug') 
-        
-                    $(el).load(`/galeria-de-ondas/${slug} .onda-card`, ()=>{
-                        // resolve()
-                    })
-                })
-            // })
-
-            // await new Promise(resolve => {
-                console.log('') // load bearing console log, NÃO APAGAR PFV!!!!!!!!
-                setTimeout(()=>{
-                    // resolve()
-                }, 750)
-            // })
-        }
+}

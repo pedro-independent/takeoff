@@ -1,5 +1,8 @@
 import "./styles/style.css";
 
+/* Import Pages */
+import home from "./pages/home/home";
+
 //import barba from '@barba/core'
 import Lenis from "@studio-freight/lenis";
 import gsap from "gsap";
@@ -19,6 +22,15 @@ import AirDatepickerPT from "air-datepicker/locale/pt";
 /**/
 
 // -------------------------------- GLOBAL VARS/VARIABLES
+
+const isHome = document.querySelector('body')?.dataset.page === 'home';
+
+if (isHome) {
+  home()
+}
+
+
+
 
 export const colors = {};
 colors.white = "#FFFFFF";

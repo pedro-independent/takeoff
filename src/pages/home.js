@@ -13,10 +13,10 @@ import Splide from '@splidejs/splide'
 ------------------------------------------ HOME -----------------------------------------
 *****************************************************************************************/
 
-import { initCommonCode, colors } from '../../global.js';
-// import home from "./pages/home/home";
+import { initCommonCode, colors } from '../global.js';
 
-export function runhome()
+
+export function runHome()
 {
     console.log("esta é a home")
 

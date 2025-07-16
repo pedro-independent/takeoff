@@ -1,7 +1,5 @@
 import "./styles/style.css";
 
-/* Import Pages */
-import home from "./pages/home/home";
 
 //import barba from '@barba/core'
 import Lenis from "@studio-freight/lenis";

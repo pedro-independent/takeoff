@@ -5,68 +5,78 @@
 // async function start() {
 switch (document.querySelector('body')?.dataset.page) 
 {
-  case 'home':{
-       const home =  import("./pages/home");
-        home.runHome();
-        }
+  case 'home': {
+    import('./pages/home.js')
+      .then(home => home.runHome())
+      .catch(err => console.error('Failed to load home module:', err));
     break;
+  }
 
-  case 'destino':{
-      const destino =  import("./pages/destino");
-        destino.runDestino();
-        }
+  case 'destino': {
+    import('./pages/destino.js')
+      .then(destino => destino.runDestino())
+      .catch(err => console.error('Failed to load destino module:', err));
     break;
+  }
 
-  case 'destinos':{
-    const destinos =  import("./pages/destinos"); 
-        destinos.runDestinos();
-        }
+  case 'destinos': {
+    import('./pages/destinos.js')
+      .then(destinos => destinos.runDestinos())
+      .catch(err => console.error('Failed to load destinos module:', err));
     break;
+  }
 
-  case 'experiencias':{
-     const experiencias =  import("./pages/experiencias");
-        experiencias.runExperiencias();
-        }
+  case 'experiencias': {
+    import('./pages/experiencias.js')
+      .then(experiencias => experiencias.runExperiencias())
+      .catch(err => console.error('Failed to load experiencias module:', err));
     break;
+  }
 
-  case 'ofertas':{
-     const ofertas =  import("./pages/ofertas");
-        ofertas.runOfertas();
-        }
+  case 'ofertas': {
+    import('./pages/ofertas.js')
+      .then(ofertas => ofertas.runOfertas())
+      .catch(err => console.error('Failed to load ofertas module:', err));
     break;
+  }
 
-  case 'pesquisa':{
-      const pesquisa =  import("./pages/pesquisa");
-        pesquisa.runPesquisa();
-        }
+  case 'pesquisa': {
+    import('./pages/pesquisa.js')
+      .then(pesquisa => pesquisa.runPesquisa())
+      .catch(err => console.error('Failed to load pesquisa module:', err));
     break;
+  }
 
-  case 'politicas':{
-     const politicas =  import("./pages/politicas");
-        politicas.runPoliticas();
-    }
+  case 'politicas': {
+    import('./pages/politicas.js')
+      .then(politicas => politicas.runPoliticas())
+      .catch(err => console.error('Failed to load politicas module:', err));
     break;
-      
-  case 'produto':{
-     const produto =  import("./pages/produto");
-        produto.runProduto();
-    }
-    break;
+  }
 
-  case 'sobreNos':{
-     const sobreNos =  import("./pages/sobreNos");
-        sobreNos.runSobreNos();
-    }
+  case 'produto': {
+    import('./pages/produto.js')
+      .then(produto => produto.runProduto())
+      .catch(err => console.error('Failed to load produto module:', err));
     break;
+  }
 
-  case 'surfTrips':{
-     const surTrips =  import("./pages/surfTrips");
-        surTrips.runSurfTrips();
-    }
+  case 'sobreNos': {
+    import('./pages/sobreNos.js')
+      .then(sobreNos => sobreNos.runSobreNos())
+      .catch(err => console.error('Failed to load sobreNos module:', err));
     break;
+  }
+
+  case 'surfTrips': {
+    import('./pages/surfTrips.js')
+      .then(surfTrips => surfTrips.runSurfTrips())
+      .catch(err => console.error('Failed to load surfTrips module:', err));
+    break;
+  }
 
   default:
-    console.log('Code not defined!');
+    console.log('Code not defined!')
     
 }
 // }

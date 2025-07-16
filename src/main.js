@@ -2,65 +2,65 @@
 // -------------------------------- GLOBAL VARS/VARIABLES
 
 
-async function start() {
+// async function start() {
 switch (document.querySelector('body')?.dataset.page) 
 {
   case 'home':{
-       const home = await import("./pages/home");
+       const home =  import("./pages/home");
         home.runHome();
         }
     break;
 
   case 'destino':{
-      const destino = await import("./pages/destino");
+      const destino =  import("./pages/destino");
         destino.runDestino();
         }
     break;
 
   case 'destinos':{
-    const destinos = await import("./pages/destinos"); 
+    const destinos =  import("./pages/destinos"); 
         destinos.runDestinos();
         }
     break;
 
   case 'experiencias':{
-     const experiencias = await import("./pages/experiencias");
+     const experiencias =  import("./pages/experiencias");
         experiencias.runExperiencias();
         }
     break;
 
   case 'ofertas':{
-     const ofertas = await import("./pages/ofertas");
+     const ofertas =  import("./pages/ofertas");
         ofertas.runOfertas();
         }
     break;
 
   case 'pesquisa':{
-      const pesquisa = await import("./pages/pesquisa");
+      const pesquisa =  import("./pages/pesquisa");
         pesquisa.runPesquisa();
         }
     break;
 
   case 'politicas':{
-     const politicas = await import("./pages/politicas");
+     const politicas =  import("./pages/politicas");
         politicas.runPoliticas();
     }
     break;
       
   case 'produto':{
-     const produto = await import("./pages/produto");
+     const produto =  import("./pages/produto");
         produto.runProduto();
     }
     break;
 
   case 'sobreNos':{
-     const sobreNos = await import("./pages/sobreNos");
+     const sobreNos =  import("./pages/sobreNos");
         sobreNos.runSobreNos();
     }
     break;
 
   case 'surfTrips':{
-     const surTrips = await import("./pages/surfTrips");
+     const surTrips =  import("./pages/surfTrips");
         surTrips.runSurfTrips();
     }
     break;
@@ -68,6 +68,7 @@ switch (document.querySelector('body')?.dataset.page)
   default:
     console.log('Code not defined!');
     
-}}
+}
+// }
 
-start();
+// start();

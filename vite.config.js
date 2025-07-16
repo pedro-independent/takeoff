@@ -16,7 +16,7 @@ export default defineConfig({
 		rollupOptions: {
 			input: './src/main.js', // Your main entry file
 			output: {
-				format: 'umd', // UMD format maximizes compatibility when loaded via a <script> tag
+				format: 'es', // UMD format maximizes compatibility when loaded via a <script> tag
 				entryFileNames: 'main.js', // Force the output filename to be 'main.js'
 				esModule: false, // Avoids adding ES module markers since we’re using UMD
 				compact: true, // Produces a compact, minimized output bundle

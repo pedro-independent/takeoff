@@ -13,15 +13,14 @@ import Splide from '@splidejs/splide'
 ------------------------------------------ HOME -----------------------------------------
 *****************************************************************************************/
 
-import { initCommonCode, colors } from '../../main.js';import home from "./pages/home/home";
+import { initCommonCode, colors } from '../../global.js';
+// import home from "./pages/home/home";
 
-function home()
+export function runhome()
 {
     console.log("esta é a home")
-}
 
-export default home
-
+    
 initCommonCode();
 
 //btnInit()
@@ -611,3 +610,7 @@ initCommonCode();
 //     }
 // }
 
+
+}
+
+// export default home

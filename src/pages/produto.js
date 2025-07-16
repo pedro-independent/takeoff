@@ -1945,7 +1945,7 @@ Para poder limpar o valor total sempre que se muda a selecção */
     
     
     if($('.page-container').find('.acc-list-item').length > 0){
-            await new Promise(resolve => {
+            // await new Promise(resolve => {
                 let container = $('.page-container')
                 let slug = $(container).find('.acc-gal').attr('data-slug')
                 $(container).find('.acc-list-item').each(function(idx, el){
@@ -2032,34 +2032,34 @@ $(container).find('.acc-gal-wrap .acc-gal-list').append(galItem);
                         }
                                 })
 
-                                resolve()
+                                // resolve()
                             }, 250)
                         }
                     })
         
                 })
-            })
+            // })
         }
 
 
           // -------- GALERIA DE ONDAS --------
         if($('.page-container').find('.onda-list').length > 0){
             let container = $('.page-container')
-            await new Promise(resolve => {
+            // await new Promise(resolve => {
                 $(container).find('.onda-list').each(function(idx, el){
                     
                     let slug = $(el).attr('data-slug') 
         
                     $(el).load(`/galeria-de-ondas/${slug} .onda-card`, ()=>{
-                        resolve()
+                        // resolve()
                     })
                 })
-            })
+            // })
 
-            await new Promise(resolve => {
+            // await new Promise(resolve => {
                 console.log('') // load bearing console log, NÃO APAGAR PFV!!!!!!!!
                 setTimeout(()=>{
-                    resolve()
+                    // resolve()
                 }, 750)
-            })
+            // })
         }

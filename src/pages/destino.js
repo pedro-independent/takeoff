@@ -1015,7 +1015,7 @@ initCommonCode();
 
         if($('.page-container').find('.od-zona').length > 0){
             let container = $('.page-container')
-             await new Promise(resolve => {
+            //  await new Promise(resolve => {
                 $(container).find('.od-zona').each(function(idx, el){
                     
                     let slug = $(el).attr('data-slug') 
@@ -1030,22 +1030,22 @@ initCommonCode();
                             $(container).find('.od-zona').each(function(index, elem){
                                 if($(elem).find('.loader .w-dyn-empty').length > 0) $(elem).remove()
                             })
-                             resolve()
+                            //  resolve()
                         }
                     })
         
                 })
-             })
+            //  })
 
 
             //Tiago: ahahahahaha, temos de ver o que fazer. Mas pelo menos ele avisa. Anyway, o Promisse não deve funcionar aqui
-             await new Promise(resolve => {
+            //  await new Promise(resolve => {
                 console.log('') // load bearing console log, NÃO APAGAR PFV!!!!!!!!
                 setTimeout(()=>{
                     $(container).find('.od-onda-wrap').append($('.blue-card'))
-                     resolve()
+                    //  resolve()
                 }, 750)
-             })
+            //  })
 
             
         }
@@ -1054,7 +1054,7 @@ initCommonCode();
         
         // -------- ATRAÇÕES --------
         if($('.page-container').find('.acc-list-item').length > 0){
-             await new Promise(resolve => {
+            //  await new Promise(resolve => {
                 let container = $('.page-container')
                 let slug = $(container).find('.acc-gal').attr('data-slug')
                 $(container).find('.acc-list-item').each(function(idx, el){
@@ -1101,11 +1101,11 @@ initCommonCode();
                                     $('.det-popup-thumb-slide.splide').get(0).splide.go(parseFloat(i)-1)
                                 })
 
-                                 resolve()
+                                //  resolve()
                             }, 500)
                         }
                     })
         
                 })
-             })
+            //  })
         }

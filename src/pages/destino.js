@@ -764,105 +764,106 @@ initCommonCode();
             galSplide.mount()
         }
 
-        // -------- ONDA GALLERY --------
-        if($('.page-container').find('.od-wrap.splide').first().length > 0){
-            var ondaSplide = new Splide($('.page-container').find('.od-wrap.splide').first().get(0), {
-                type: 'slide',
-                direction: 'ltr',
+        // // -------- ONDA GALLERY --------
+        // if($('.page-container').find('.od-wrap.splide').first().length > 0){
+        //     var ondaSplide = new Splide($('.page-container').find('.od-wrap.splide').first().get(0), {
+        //         type: 'slide',
+        //         direction: 'ltr',
     
-                autoWidth: true,
+        //         autoWidth: true,
     
-                // autoHeight: true,
-                // heightRatio: 1,
+        //         // autoHeight: true,
+        //         // heightRatio: 1,
     
-                // drag: 'free',
-                // flickPower: 150,
+        //         // drag: 'free',
+        //         // flickPower: 150,
     
-                speed: 1000,
-                arrows: true,
+        //         speed: 1000,
+        //         arrows: true,
     
-                // arrows: {
-                //     prev: $('.onda-slide-btn.prev')[0],
-                //     next: $('.onda-slide-btn.next')[0]
-                // },
-                pagination: false,
+        //         // arrows: {
+        //         //     prev: $('.onda-slide-btn.prev')[0],
+        //         //     next: $('.onda-slide-btn.next')[0]
+        //         // },
+        //         pagination: false,
     
     
-            } );
+        //     } );
     
-            ondaSplide.mount()
+        //     ondaSplide.mount()
     
-            // ondaSplide.on('moved', function(){
-            //     setTimeout(()=>{
-            //         let activeCard = $('.blue-card.is-active.is-visible')
-            //         let slug = activeCard.attr('data-card-zone')
+        //     // ondaSplide.on('moved', function(){
+        //     //     setTimeout(()=>{
+        //     //         let activeCard = $('.blue-card.is-active.is-visible')
+        //     //         let slug = activeCard.attr('data-card-zone')
     
-            //         let activeZona = $(`.od-zona[data-slug="${slug}"]`)
+        //     //         let activeZona = $(`.od-zona[data-slug="${slug}"]`)
     
-            //         gsap.to($('.od-zona').not(activeZona), {
-            //             opacity: 0.6,
-            //             duration: 0.35,
-            //             ease: 'power2.inOut'
-            //         })
+        //     //         gsap.to($('.od-zona').not(activeZona), {
+        //     //             opacity: 0.6,
+        //     //             duration: 0.35,
+        //     //             ease: 'power2.inOut'
+        //     //         })
     
-            //         gsap.to(activeZona, {
-            //             opacity: 1,
-            //             duration: 0.35,
-            //             ease: 'power2.inOut'
-            //         })
+        //     //         gsap.to(activeZona, {
+        //     //             opacity: 1,
+        //     //             duration: 0.35,
+        //     //             ease: 'power2.inOut'
+        //     //         })
     
-            //     }, 50)
-            // })
+        //     //     }, 50)
+        //     // })
     
-            $('.od-zona').clickSet((el)=>{
-                let zona = $(el).attr('data-slug')
-                let card = $(`.blue-card[data-card-zone="${zona}"]`).first()
+            
+        //     $('.od-zona').clickSet((el)=>{
+        //         let zona = $(el).attr('data-slug')
+        //         // let card = $(`.blue-card[data-card-zone="${zona}"]`).first()
 
-                setTimeout(()=>{
-                    gsap.to($('.od-zonas-onda-wrap'), {
-                        opacity: 0,
-                        duration: 0.35,
-                        ease: 'power3.inOut',
-                        onComplete: ()=>{
-                            $('.blue-card').not(`[data-card-zone="${zona}"]`).removeClass('splide__slide')
-                            $('.blue-card').not(`[data-card-zone="${zona}"]`).removeAttr('id')
-                            $('.blue-card').not(`[data-card-zone="${zona}"]`).removeAttr('role')
-                            $('.blue-card').not(`[data-card-zone="${zona}"]`).removeAttr('aria-roledescription')
-                            $('.blue-card').not(`[data-card-zone="${zona}"]`).removeAttr('aria-label')
+        //         setTimeout(()=>{
+        //             gsap.to($('.od-zonas-onda-wrap'), {
+        //                 opacity: 0,
+        //                 duration: 0.35,
+        //                 ease: 'power3.inOut',
+        //                 onComplete: ()=>{
+        //                     $('.blue-card').not(`[data-card-zone="${zona}"]`).removeClass('splide__slide')
+        //                     $('.blue-card').not(`[data-card-zone="${zona}"]`).removeAttr('id')
+        //                     $('.blue-card').not(`[data-card-zone="${zona}"]`).removeAttr('role')
+        //                     $('.blue-card').not(`[data-card-zone="${zona}"]`).removeAttr('aria-roledescription')
+        //                     $('.blue-card').not(`[data-card-zone="${zona}"]`).removeAttr('aria-label')
 
-                            $(`.blue-card[data-card-zone="${zona}"]`).addClass('splide__slide')
+        //                     $(`.blue-card[data-card-zone="${zona}"]`).addClass('splide__slide')
 
-                            gsap.set($(`.blue-card[data-card-zone="${zona}"]`), {
-                                display: 'block'
-                            })
+        //                     gsap.set($(`.blue-card[data-card-zone="${zona}"]`), {
+        //                         display: 'block'
+        //                     })
 
-                            ondaSplide.go(0)
-                            ondaSplide.refresh()
+        //                     ondaSplide.go(0)
+        //                     ondaSplide.refresh()
 
-                            gsap.set($('.blue-card').not(`[data-card-zone="${zona}"]`), {
-                                display: 'none'
-                            })
+        //                     gsap.set($('.blue-card').not(`[data-card-zone="${zona}"]`), {
+        //                         display: 'none'
+        //                     })
 
-                            setTimeout(()=>{
-                                ondaSplide.go(0)
-                                ondaSplide.refresh()
-                            }, 100)
+        //                     setTimeout(()=>{
+        //                         ondaSplide.go(0)
+        //                         ondaSplide.refresh()
+        //                     }, 100)
 
-                            gsap.to($('.od-zonas-onda-wrap'), {
-                                opacity: 1,
-                                duration: 0.35,
-                                ease: 'power3.inOut',
-                            })
+        //                     gsap.to($('.od-zonas-onda-wrap'), {
+        //                         opacity: 1,
+        //                         duration: 0.35,
+        //                         ease: 'power3.inOut',
+        //                     })
                             
-                        }
-                    })
+        //                 }
+        //             })
 
 
-                }, 10)
+        //         }, 10)
     
-                //ondaSplide.go($('.blue-card').index(card))
-            })
-        }
+        //         //ondaSplide.go($('.blue-card').index(card))
+        //     })
+        // }
 
         // -------- DICAS GALLERY --------
         if($('.page-container').find('.dicas-list-wrap.splide').first().length > 0){
@@ -1051,6 +1052,106 @@ async function startLoad() {
             
         }
 
+    // -------- ONDA GALLERY --------
+        if($('.page-container').find('.od-wrap.splide').first().length > 0){
+            var ondaSplide = new Splide($('.page-container').find('.od-wrap.splide').first().get(0), {
+                type: 'slide',
+                direction: 'ltr',
+    
+                autoWidth: true,
+    
+                // autoHeight: true,
+                // heightRatio: 1,
+    
+                // drag: 'free',
+                // flickPower: 150,
+    
+                speed: 1000,
+                arrows: true,
+    
+                // arrows: {
+                //     prev: $('.onda-slide-btn.prev')[0],
+                //     next: $('.onda-slide-btn.next')[0]
+                // },
+                pagination: false,
+    
+    
+            } );
+    
+            ondaSplide.mount()
+    
+            // ondaSplide.on('moved', function(){
+            //     setTimeout(()=>{
+            //         let activeCard = $('.blue-card.is-active.is-visible')
+            //         let slug = activeCard.attr('data-card-zone')
+    
+            //         let activeZona = $(`.od-zona[data-slug="${slug}"]`)
+    
+            //         gsap.to($('.od-zona').not(activeZona), {
+            //             opacity: 0.6,
+            //             duration: 0.35,
+            //             ease: 'power2.inOut'
+            //         })
+    
+            //         gsap.to(activeZona, {
+            //             opacity: 1,
+            //             duration: 0.35,
+            //             ease: 'power2.inOut'
+            //         })
+    
+            //     }, 50)
+            // })
+    
+            
+            $('.od-zona').clickSet((el)=>{
+                let zona = $(el).attr('data-slug')
+                // let card = $(`.blue-card[data-card-zone="${zona}"]`).first()
+
+                setTimeout(()=>{
+                    gsap.to($('.od-zonas-onda-wrap'), {
+                        opacity: 0,
+                        duration: 0.35,
+                        ease: 'power3.inOut',
+                        onComplete: ()=>{
+                            $('.blue-card').not(`[data-card-zone="${zona}"]`).removeClass('splide__slide')
+                            $('.blue-card').not(`[data-card-zone="${zona}"]`).removeAttr('id')
+                            $('.blue-card').not(`[data-card-zone="${zona}"]`).removeAttr('role')
+                            $('.blue-card').not(`[data-card-zone="${zona}"]`).removeAttr('aria-roledescription')
+                            $('.blue-card').not(`[data-card-zone="${zona}"]`).removeAttr('aria-label')
+
+                            $(`.blue-card[data-card-zone="${zona}"]`).addClass('splide__slide')
+
+                            gsap.set($(`.blue-card[data-card-zone="${zona}"]`), {
+                                display: 'block'
+                            })
+
+                            ondaSplide.go(0)
+                            ondaSplide.refresh()
+
+                            gsap.set($('.blue-card').not(`[data-card-zone="${zona}"]`), {
+                                display: 'none'
+                            })
+
+                            setTimeout(()=>{
+                                ondaSplide.go(0)
+                                ondaSplide.refresh()
+                            }, 100)
+
+                            gsap.to($('.od-zonas-onda-wrap'), {
+                                opacity: 1,
+                                duration: 0.35,
+                                ease: 'power3.inOut',
+                            })
+                            
+                        }
+                    })
+
+
+                }, 10)
+    
+                //ondaSplide.go($('.blue-card').index(card))
+            })
+        }
 
         
         // -------- ATRAÇÕES --------

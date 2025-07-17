@@ -2174,7 +2174,9 @@ $(container).find('.acc-gal-wrap .acc-gal-list').append(galItem);
                         // console.log(selectedAcomodacao);
 
                         // if(!acomodacoesList.includes(selectedAcomodacao))
-                            if(savedAcomodacao != selectedAcomodacao)
+                        console.log('savedAcomodacao: ' + savedAcomodacao);
+                        console.log('selectedAcomodacao: ' + selectedAcomodacao);
+                            // if(savedAcomodacao != selectedAcomodacao)
                         {
                             savedAcomodacao = selectedAcomodacao;
                             

@@ -9,20 +9,20 @@ import Splide from '@splidejs/splide'
 //import "./styles/style.css";
 
 
+
 /****************************************************************************************
 ------------------------------------------ HOME -----------------------------------------
 *****************************************************************************************/
 
-import { initCommonCode, colors } from '../global.js';
+import { initCommonCode, colors, initVimeoLightboxAdvanced } from '../global.js';
 
 
 export function runHome()
 {
-    console.log("esta é a home")
 
     
 initCommonCode();
-
+initVimeoLightboxAdvanced();
 //btnInit()
 
 
@@ -609,7 +609,6 @@ initCommonCode();
 //         return
 //     }
 // }
-
 
 }
 

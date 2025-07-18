@@ -9,7 +9,7 @@ import Splide from '@splidejs/splide'
 ---------------------------------------- DESTINO ---------------------------------------
 *****************************************************************************************/
 
-import { initCommonCode, createAnchor, colors} from '../global.js';
+import { initCommonCode, createAnchor, initVimeoLightboxAdvanced, colors} from '../global.js';
 
 
 
@@ -17,6 +17,7 @@ export function runDestino()
 {
 
 initCommonCode();
+initVimeoLightboxAdvanced();
 
         // -------- REMOVE ELEMS THAT DONT FULLFILL CMS CONDITION --------
         $('.w-condition-invisible').remove()

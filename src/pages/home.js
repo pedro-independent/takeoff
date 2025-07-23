@@ -104,7 +104,10 @@ initVimeoLightboxAdvanced();
             // })
         })
 
+         if($(window).outerWidth() > 992){
         $('.h-hero-arr').hoverSet((el)=>{
+            
+            console.log('1');
             gsap.to($(el).find('.h-hero-arr-svg'), {
                 color: colors.blue,
                 duration: 0.3,
@@ -112,6 +115,7 @@ initVimeoLightboxAdvanced();
             })
     
         }, (el)=>{
+            console.log('2');
             gsap.to($(el).find('.h-hero-arr-svg'), {
                 color: ()=>{
                     return $(el).find('.h-hero-arr-svg').parent().css('color')
@@ -120,7 +124,7 @@ initVimeoLightboxAdvanced();
                 ease: 'power2.inOut'
             })
         })
-
+    }
         if($('.h-hero-right .splide__slide').length == 0) $('.h-hero-right').remove()
 
 

@@ -1255,6 +1255,11 @@ initPageTransitions();
 
     // -------------------- ORCAMENTO POP-UP
     $(".nav-cta.orcamento").clickSet((el) => {
+
+      $('.popup-wrap.orcamento').on('mousewheel DOMMouseScroll', function(e) {
+    e.stopPropagation();
+});
+
       gsap.to($(".popup-wrap.orcamento"), {
         x: "0%",
         duration: 0.5,

@@ -9,6 +9,9 @@ switch (document.querySelector('body')?.dataset.page)
     import('./pages/home.js')
       .then(home => home.runHome())
       .catch(err => console.error('Failed to load home module:', err));
+
+
+      
     break;
   }
 

@@ -14,7 +14,7 @@ mixitup.use(multifilter);
 *****************************************************************************************/
 
 
-import { initCommonCode, createAnchor, colors } from '../global.js';
+import { initCommonCode, createAnchor, colors, initVimeoLightboxAdvanced } from '../global.js';
 import { ResortData, sheetInit, globalVarSurfistaOrMotorista } from '../excelProcessing.js';
 
 
@@ -28,6 +28,7 @@ export function runProduto()
 {
 
 initCommonCode();
+initVimeoLightboxAdvanced();
 
 // pageClasses['Produto'] = class Produto extends Page {
 //     async setup(){

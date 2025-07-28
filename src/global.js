@@ -2093,7 +2093,7 @@ initPageTransitions();
       clearTimeout(hoverTimer);
       hoverTimer = setTimeout(() => {
         lightbox.setAttribute('data-vimeo-hover', 'false');
-      }, 1500);
+      }, 0);
     });
 
     // Fullscreen toggle on player container

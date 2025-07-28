@@ -43,6 +43,17 @@ let navProt = false;
 let navDark = false;
 let navMenu = false;
 
+  let lenis;
+  let  lightbox ;
+
+  document.addEventListener('click', function(event) {
+  const lightbox = document.querySelector('[data-vimeo-lightbox-init]');
+  if (lightbox && lightbox.contains(event.target) && !lightbox.querySelector('.vimeo-lightbox__calc-wrap').contains(event.target)) {
+    // This only works if you manually close the lightbox here
+    lenis.start();
+  }
+});
+
 export function SetVariables(newNavProt, newNavDark, newNavMenu) {
   navProt = newNavProt;
   navDark = newNavDark;
@@ -90,7 +101,7 @@ export function initCommonCode() {
 ****************************************************************************************/
 
   //gsap.ticker.fps(60)
-  let lenis;
+
 
   lenis = new Lenis({
     //duration: 1.5,
@@ -1978,7 +1989,7 @@ initPageTransitions();
 /* Vimeo Lightbox Init */
   export function initVimeoLightboxAdvanced() {
   // Single lightbox container
-  const lightbox = document.querySelector('[data-vimeo-lightbox-init]');
+   lightbox = document.querySelector('[data-vimeo-lightbox-init]');
   if (!lightbox) return;
 
   // Open & close buttons
@@ -2147,6 +2158,8 @@ initPageTransitions();
 
   // Open or switch video
   async function openLightbox(id, placeholderBtn) {
+    lenis.stop();
+    
     // Enter loading state immediately
     lightbox.setAttribute('data-vimeo-activated', 'loading');
     lightbox.setAttribute('data-vimeo-loaded',    'false');
@@ -2184,6 +2197,7 @@ initPageTransitions();
     // Build a brand-new player if needed
     if (!player) {
       iframe.src = `https://player.vimeo.com/video/${id}?api=1&background=1&autoplay=0&loop=0&muted=0`;
+      
       player = new Vimeo.Player(iframe);
       setupPlayerEvents();
       currentVideoID = id;
@@ -2253,6 +2267,7 @@ initPageTransitions();
       const vid = btn.getAttribute('data-vimeo-lightbox-id');
       const img = btn.querySelector('[data-vimeo-lightbox-placeholder]');
       openLightbox(vid, img);
+           
     });
   });
 }

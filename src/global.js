@@ -51,7 +51,6 @@ let navMenu = false;
   if (lightbox && lightbox.contains(event.target) && !lightbox.querySelector('.vimeo-lightbox__calc-wrap').contains(event.target)) {
     // This only works if you manually close the lightbox here
     lenis.start();
-    console.log("Clicked inside the lightbox");
   }
 });
 
@@ -2198,6 +2197,7 @@ initPageTransitions();
     // Build a brand-new player if needed
     if (!player) {
       iframe.src = `https://player.vimeo.com/video/${id}?api=1&background=1&autoplay=0&loop=0&muted=0`;
+      
       player = new Vimeo.Player(iframe);
       setupPlayerEvents();
       currentVideoID = id;

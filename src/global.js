@@ -1487,21 +1487,23 @@ initPageTransitions();
           }
         };
 
+        $(el).on("click", toggleForm);
+        
         // Handle mobile touch
-        if (isTouchDevice) {
-          $(el).on("touchstart", toggleForm);
-        } else {
-          // Handle click behavior for desktop
-          $(el).on("click", toggleForm);
+        // if (isTouchDevice) {
+        //   $(el).on("touchstart", toggleForm);
+        // } else {
+        //   // Handle click behavior for desktop
+        //   $(el).on("click", toggleForm);
 
-          $(el).on("mouseenter", () => {
-            openForm(el);
-          });
+        //   $(el).on("mouseenter", () => {
+        //     openForm(el);
+        //   });
 
-          $(el).on("mouseleave", () => {
-            closeForm(el);
-          });
-        }
+        //   $(el).on("mouseleave", () => {
+        //     closeForm(el);
+        //   });
+        // }
 
         // Close when clicking outside
         $(document).on("click touchstart", (event) => {

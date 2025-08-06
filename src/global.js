@@ -64,6 +64,7 @@ export function SetVariables(newNavProt, newNavDark, newNavMenu) {
 ----------------------------------------- INITS ----------------------------------------
 ****************************************************************************************/
 export function initCommonCode() {
+  
   window.scrollTo(0, 0);
 
   if ($(".w-editor-body").length > 0) {

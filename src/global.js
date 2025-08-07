@@ -103,6 +103,7 @@ export function initCommonCode() {
 
   //gsap.ticker.fps(60)
 
+if (!window.location.href.includes('?edit')) {
 
   lenis = new Lenis({
     //duration: 1.5,
@@ -128,6 +129,7 @@ export function initCommonCode() {
   lenis.resize();
   lenis.scrollTo(0, { immediate: true });
 
+  }
   // ---------------- NAV SETUP ----------------
   // await new Promise(resolve => {
   navInit();

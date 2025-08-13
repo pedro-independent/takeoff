@@ -103,7 +103,7 @@ export function initCommonCode() {
 
   //gsap.ticker.fps(60)
 
-if (!window.location.href.includes('?edit')) {
+if (!document.documentElement.classList.contains('w-editor')) {
 
   lenis = new Lenis({
     //duration: 1.5,

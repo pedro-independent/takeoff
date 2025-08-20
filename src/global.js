@@ -103,8 +103,7 @@ export function initCommonCode() {
 
   //gsap.ticker.fps(60)
 
-//if (!document.documentElement.classList.contains('w-editor')) {}
-
+if (Webflow.env('editor') == undefined) {
   lenis = new Lenis({
     //duration: 1.5,
     lerp: 0.1,
@@ -129,7 +128,7 @@ export function initCommonCode() {
   lenis.resize();
   lenis.scrollTo(0, { immediate: true });
 
-  
+}
   // ---------------- NAV SETUP ----------------
   // await new Promise(resolve => {
   navInit();

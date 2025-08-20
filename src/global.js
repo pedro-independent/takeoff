@@ -105,9 +105,6 @@ export function initCommonCode() {
 
 //if (!document.documentElement.classList.contains('w-editor')) {}
 
-// This condition is TRUE only on the live site
-if ($(".w-editor-body").length === 0) {
-
   lenis = new Lenis({
     //duration: 1.5,
     lerp: 0.1,
@@ -131,7 +128,7 @@ if ($(".w-editor-body").length === 0) {
   ScrollTrigger.refresh();
   lenis.resize();
   lenis.scrollTo(0, { immediate: true });
-}
+
   
   // ---------------- NAV SETUP ----------------
   // await new Promise(resolve => {

@@ -128,7 +128,7 @@ if (Webflow.env('editor') == undefined) {
   lenis.resize();
   lenis.scrollTo(0, { immediate: true });
 
-}
+
   // ---------------- NAV SETUP ----------------
   // await new Promise(resolve => {
   navInit();
@@ -152,7 +152,8 @@ if (Webflow.env('editor') == undefined) {
   lenis.start();
 
   formReset();
-
+  
+}
   /****************************************************************************************
 ---------------------------------- WINDOW GENERAL HOOKS ---------------------------------
 *****************************************************************************************/

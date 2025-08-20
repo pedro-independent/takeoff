@@ -103,7 +103,10 @@ export function initCommonCode() {
 
   //gsap.ticker.fps(60)
 
-if (!document.documentElement.classList.contains('w-editor')) {
+//if (!document.documentElement.classList.contains('w-editor')) {}
+
+// This condition is TRUE only on the live site
+if ($(".w-editor-body").length === 0) {
 
   lenis = new Lenis({
     //duration: 1.5,
@@ -128,8 +131,8 @@ if (!document.documentElement.classList.contains('w-editor')) {
   ScrollTrigger.refresh();
   lenis.resize();
   lenis.scrollTo(0, { immediate: true });
-
-  }
+}
+  
   // ---------------- NAV SETUP ----------------
   // await new Promise(resolve => {
   navInit();

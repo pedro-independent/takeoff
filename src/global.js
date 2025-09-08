@@ -2199,10 +2199,9 @@ initPageTransitions();
       ['src','srcset','sizes','alt','width'].forEach(attr => {
         const val = placeholderBtn.getAttribute(attr);
         if (val != null) placeholder.setAttribute(attr, val);
-      }); 
-    } 
+      });
+    }
 
-    
     // Build a brand-new player if needed
     if (!player) {
       iframe.src = `https://player.vimeo.com/video/${id}?api=1&background=1&autoplay=0&loop=0&muted=0`;

@@ -2143,6 +2143,8 @@ Para poder limpar o valor total sempre que se muda a selecção */
             setTimeout(()=> resolve(), 750);
         });
     }
+
+    initVimeoLightboxAdvanced();
 }
 
 

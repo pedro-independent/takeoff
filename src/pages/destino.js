@@ -1153,7 +1153,9 @@ async function startLoad() {
                 //ondaSplide.go($('.blue-card').index(card))
             })
         }
-
+        // console.log("1");
+initVimeoLightboxAdvanced();
+// console.log("2");
         
         // -------- ATRAÇÕES --------
         if($('.page-container').find('.acc-list-item').length > 0){

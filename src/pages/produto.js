@@ -1345,7 +1345,8 @@ Para poder limpar o valor total sempre que se muda a selecção */
                         let maxRange = period.split(" a ")[1].trim()
     
                         let minDay = minRange.split(' ')[0]
-                        let minMonth = minRange.split(' ')[1].toLowerCase()
+                        let parts = minRange.split(" ");
+                        let minMonth = parts.length > 1 ? parts[1].toLowerCase() : null;
                         let maxDay = maxRange.split(' ')[0]
                         let maxMonth = maxRange.split(' ')[1].toLowerCase()
 
@@ -1524,7 +1525,8 @@ Para poder limpar o valor total sempre que se muda a selecção */
                 })
     
                 $('.consulta-form-wrap').find('.pop-form-input-wrap').each(function(idx, el){
-                    $(el).on('click mouseenter', ()=>{
+                    // $(el).on('click mouseenter', ()=>{
+                        $(el).on('click ', ()=>{
                         gsap.to($(el), {
                             zIndex: 100,
                             ease: 'power2.inOut',
@@ -1539,22 +1541,22 @@ Para poder limpar o valor total sempre que se muda a selecção */
                             })
                         }
                     })
-                    $(el).on('mouseleave', ()=>{
+                    // $(el).on('mouseleave', ()=>{
     
-                        gsap.to($(el), {
-                            zIndex: 0,
-                            ease: 'power2.inOut',
-                            duration: 0.35
-                        })
-                        if($(el).find('.pop-form-expand').length > 0){
-                            gsap.to($(el).find('.pop-form-expand'), {
-                                height: 0,
-                                opacity: 0,
-                                ease: 'power2.inOut',
-                                duration: 0.35
-                            })
-                        }
-                    })
+                    //     gsap.to($(el), {
+                    //         zIndex: 0,
+                    //         ease: 'power2.inOut',
+                    //         duration: 0.35
+                    //     })
+                    //     if($(el).find('.pop-form-expand').length > 0){
+                    //         gsap.to($(el).find('.pop-form-expand'), {
+                    //             height: 0,
+                    //             opacity: 0,
+                    //             ease: 'power2.inOut',
+                    //             duration: 0.35
+                    //         })
+                    //     }
+                    // })
                 })
     
                 $('.consulta-form-wrap').find('.pop-cont-radio').each(function(idx, el){
@@ -1635,6 +1637,12 @@ Para poder limpar o valor total sempre que se muda a selecção */
                             $('.consulta-wrap').addClass('finished')
                             $('.consulta-wrap').removeClass('step-1')
                             $('.consulta-wrap').removeClass('step-2')
+                            //tiago -  Tentar arranjar o submit
+                            console.log('teste');
+                            $('.consulta-res-resumo-left').hide();
+                            document.querySelector('.consulta-form-wrap').style.paddingTop = '0';
+                            document.querySelector('.consulta-form-wrap').style.paddingBottom = '0';
+                            document.querySelector('.form-success').style.paddingTop = '0';
                         }
                     });
                     

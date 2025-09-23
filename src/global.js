@@ -1976,7 +1976,7 @@ initPageTransitions();
     $(".footer")
       .find(".form-input-wrap")
       .each(function (idx, el) {
-        $(el).on("focus click", () => {
+        $(el).on("focusin click", () => {
           if ($(el).find(".form-input-label").length > 0) {
             gsap.to($(el).find(".form-input-label"), {
               paddingTop: 0,

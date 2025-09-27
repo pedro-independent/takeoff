@@ -19,6 +19,12 @@ switch (document.querySelector('body')?.dataset.page)
     import('./pages/destino.js')
       .then(destino => destino.runDestino())
       .catch(err => console.error('Failed to load destino module:', err));
+
+       setTimeout(function() {
+        console.log(' ')
+    document.querySelector('.page-container .od-zona')?.click();
+  }, 2000);
+
     break;
   }
 

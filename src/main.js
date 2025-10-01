@@ -67,6 +67,16 @@ switch (document.querySelector('body')?.dataset.page)
     import('./pages/produto.js')
       .then(produto => produto.runProduto())
       .catch(err => console.error('Failed to load produto module:', err));
+      
+      document.querySelectorAll('.pop-form-expand').forEach(el => {
+  // Check if it has a child with class 'pop-expand-content'
+  const content = el.querySelector('.pop-expand-content');
+  if (content && content.querySelector('#pop-dest-radios')) {
+    // Apply top padding if conditions are met
+    el.style.paddingTop = '20rem';
+  }
+});
+
     break;
   }
 

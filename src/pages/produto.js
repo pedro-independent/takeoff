@@ -27,6 +27,7 @@ import { ResortData, sheetInit, globalVarSurfistaOrMotorista } from '../excelPro
 export function runProduto()
 {
 
+
 initCommonCode();
 initVimeoLightboxAdvanced();
 
@@ -2073,6 +2074,7 @@ Para poder limpar o valor total sempre que se muda a selecção */
                 testSplide.go(idx)
             })
         }
+
 
 
     }

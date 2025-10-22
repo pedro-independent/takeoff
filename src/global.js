@@ -2211,6 +2211,12 @@ initPageTransitions();
       currentVideoID = id;
       await runSizing();
     }
+ 
+    player.on('ended', function() {
+
+    lenis.start();
+  
+  });
 
     // Now sizing is ready — show lightbox
     lightbox.setAttribute('data-vimeo-activated', 'true');

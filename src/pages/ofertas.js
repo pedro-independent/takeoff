@@ -106,40 +106,90 @@ export function runOfertas()
             })
         })
 
-        $('.flt-check, .flt-promo-toggle').clickSet((elem)=>{
+   // Guard A: avoid un-toggling parent when parent is programmatically toggling children
+let suppressParentUntoggle = false;
+// Guard B: avoid unchecking children when the parent is auto-untoggled by a child
+let suppressChildCascade = false;
 
-            let el
-            if($(elem).hasClass('flt-check')){
-                el = $(elem).parents('.flt-filter, .flt-promo-toggle').get(0)
+$('.flt-check, .flt-promo-toggle').clickSet((elem)=>{
+
+    let el;
+    if($(elem).hasClass('flt-check')){
+        el = $(elem).parents('.flt-filter, .flt-promo-toggle').get(0);
+    } else {
+        el = elem;
+    }
+
+    /* --- Parent/Child sync (with guards) --- */
+    if ($(elem).hasClass('flt-check')) {
+        const $label    = $(el);
+        const $item     = $label.closest('.flt-cont-item');
+        const isChecked = $(elem).prop('checked');
+
+        // CHILD logic
+        if ($item.is('[data-dest]') && !suppressParentUntoggle) {
+            const key = $item.attr('data-dest'); // e.g., "sri-lanka"
+            const $parentCheck = $(`.flt-cont-item[data-dest-item="${key}"] .flt-check`).first();
+
+            // If child is checked or unchecked and parent is active, untoggle parent
+            if ($parentCheck.prop('checked')) {
+                // mark that parent uncheck is automatic -> don't cascade to children
+                suppressChildCascade = true;
+                $parentCheck.click();    // run existing tag/filter logic
+                suppressChildCascade = false;
             }
-            else{
-                el = elem
-            }
+        }
 
-            if(el.tag === undefined){
-                let newTag = $('#flt-tag-base').clone()
-                newTag.find('.flt-tag-txt').children().text($(el).find('.flt-filter-txt').children().text())
-    
-                $('.flt-active').append(newTag)
-
-                newTag.find('.flt-close-wrap').clickSet((elem)=>{
-                    $(el).find('.flt-check').click()
-                })
-
-                el.tag = newTag
-            }
-            else{
-                gsap.to(el.tag, {
-                    opacity: 0,
-                    duration: 0.25,
-                    ease: 'power2.inOut',
-                    onComplete: ()=>{
-                        el.tag.remove()
-                        el.tag = undefined
+        // PARENT logic
+        if ($item.is('[data-dest-item]')) {
+            if (isChecked) {
+                // Parent checked -> check all children (but don't let that untoggle parent)
+                suppressParentUntoggle = true;
+                $item.find('.flt-sub-list .flt-check').each(function(){
+                    if (!$(this).prop('checked')) {
+                        $(this).click(); // keep tag/filter logic consistent
                     }
-                })
+                });
+                suppressParentUntoggle = false;
+            } else {
+                // Parent UNchecked -> user-intended cascade (unless auto-untoggle from child)
+                if (!suppressChildCascade) {
+                    $item.find('.flt-sub-list .flt-check').each(function(){
+                        if ($(this).prop('checked')) {
+                            $(this).click(); // uncheck children purposefully
+                        }
+                    });
+                }
             }
-        })
+        }
+    }
+    /* --- /Parent/Child sync --- */
+
+    if(el.tag === undefined){
+        let newTag = $('#flt-tag-base').clone();
+        newTag.find('.flt-tag-txt').children().text($(el).find('.flt-filter-txt').children().text());
+
+        $('.flt-active').append(newTag);
+
+        newTag.find('.flt-close-wrap').clickSet((elem)=>{
+            $(el).find('.flt-check').click();
+        });
+
+        el.tag = newTag;
+    } else {
+        gsap.to(el.tag, {
+            opacity: 0,
+            duration: 0.25,
+            ease: 'power2.inOut',
+            onComplete: ()=>{
+                el.tag.remove();
+                el.tag = undefined;
+            }
+        });
+    }
+});
+
+
 
 
         $('.flt-promo-toggle').clickSet((el)=>{

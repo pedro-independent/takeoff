@@ -78,13 +78,33 @@ switch (document.querySelector('body')?.dataset.page)
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-  const video = document.querySelector('video');
-  if (video) {
-    video.muted = true; 
-    video.play().catch(err => {
-      console.log('Autoplay prevented:', err);
-    });
-  }
+ const videos = document.querySelectorAll("video");
+
+  videos.forEach(video => {
+    // Make sure Safari accepts autoplay
+    video.setAttribute("muted", "");
+    video.muted = true;
+    video.setAttribute("playsinline", "");
+    video.setAttribute("autoplay", "");
+    video.setAttribute("loop", "");
+    video.setAttribute("preload", "auto");
+
+    // Try to play the video
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(err => {
+        console.warn("Autoplay blocked by Safari, retrying after user interaction:", err);
+        // Fallback: play after first user interaction
+        const resumePlayback = () => {
+          video.play().catch(() => {});
+          document.removeEventListener("click", resumePlayback);
+          document.removeEventListener("touchstart", resumePlayback);
+        };
+        document.addEventListener("click", resumePlayback);
+        document.addEventListener("touchstart", resumePlayback);
+      });
+    }
+  });
 });
 
     break;

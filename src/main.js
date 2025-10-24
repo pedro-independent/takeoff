@@ -77,6 +77,16 @@ switch (document.querySelector('body')?.dataset.page)
   }
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+  const video = document.querySelector('video');
+  if (video) {
+    video.muted = true; 
+    video.play().catch(err => {
+      console.log('Autoplay prevented:', err);
+    });
+  }
+});
+
     break;
   }
 

@@ -92,22 +92,23 @@ switch (document.querySelector('body')?.dataset.page)
       video.setAttribute("preload", "auto");
 
       // Try to play the video
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(err => {
+      video.play();
+      // const playPromise = video.play();
+      // if (playPromise !== undefined) {
+      //   playPromise.catch(err => {
           
-          console.log("Autoplay blocked by Safari, retrying after user interaction:", err);
-          console.warn("Autoplay blocked by Safari, retrying after user interaction:", err);
-          // Fallback: play after first user interaction
-          const resumePlayback = () => {
-            video.play().catch(() => {});
-            document.removeEventListener("click", resumePlayback);
-            document.removeEventListener("touchstart", resumePlayback);
-          };
-          document.addEventListener("click", resumePlayback);
-          document.addEventListener("touchstart", resumePlayback);
-        });
-      }
+      //     console.log("Autoplay blocked by Safari, retrying after user interaction:", err);
+      //     console.warn("Autoplay blocked by Safari, retrying after user interaction:", err);
+      //     // Fallback: play after first user interaction
+      //     const resumePlayback = () => {
+      //       video.play().catch(() => {});
+      //       document.removeEventListener("click", resumePlayback);
+      //       document.removeEventListener("touchstart", resumePlayback);
+      //     };
+      //     document.addEventListener("click", resumePlayback);
+      //     document.addEventListener("touchstart", resumePlayback);
+      //   });
+      // }
     });
 
     

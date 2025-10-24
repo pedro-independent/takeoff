@@ -95,6 +95,8 @@ switch (document.querySelector('body')?.dataset.page)
       const playPromise = video.play();
       if (playPromise !== undefined) {
         playPromise.catch(err => {
+          
+          console.log("Autoplay blocked by Safari, retrying after user interaction:", err);
           console.warn("Autoplay blocked by Safari, retrying after user interaction:", err);
           // Fallback: play after first user interaction
           const resumePlayback = () => {

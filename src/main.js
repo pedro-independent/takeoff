@@ -114,6 +114,11 @@ switch (document.querySelector('body')?.dataset.page)
     
   }, 3000); // 3-second delay
 
+  
+  const $wrap = $(this).closest('.acc-gal-wrap-quarto');
+  const $targetWrap = $wrap.length ? $wrap : $('.acc-gal-wrap-quarto').first();
+  $targetWrap.css({ display: 'none', visibility: 'hidden' });
+
     break;
   }
 

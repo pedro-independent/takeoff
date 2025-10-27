@@ -3199,7 +3199,7 @@ $(document).on('pointerup touchend click', '.quartosopen', function (e) {
   // make it “present” for the event (still invisible to user)
   $targetWrap.css({ display: 'block', visibility: 'visible' });
 
-  requestAnimationFrame(() => {
+//   requestAnimationFrame(() => {
     // prefer native click first
     const el = $item.get(0);
 
@@ -3216,9 +3216,9 @@ $(document).on('pointerup touchend click', '.quartosopen', function (e) {
         console.log("correr")
       $targetWrap.css({ display: 'none', visibility: 'hidden' });
     }, 10000);
-  });
+//   });
 
-  requestAnimationFrame();
+  
 });
 
 

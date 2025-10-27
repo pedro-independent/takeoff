@@ -3096,6 +3096,9 @@ $(container).find('.acc-gal-wrap-quarto .acc-gal-list-quarto').append(galItem);
 //   targetWrap.find('.acc-gal-item-quarto').first().trigger('click');
 // });
 
+
+
+
 //         $('.quartosopen').clickSet((el)=>{
 //             // alert("1");
 //           // Find the closest .quarto-gal-wrap relative to the clicked button
@@ -3109,16 +3112,38 @@ $(container).find('.acc-gal-wrap-quarto .acc-gal-list-quarto').append(galItem);
 // })
 
 
+// $(document).on('pointerup touchend click', '.quartosopen', function (e) {
+//   const $wrap = $(this).closest('.acc-gal-wrap-quarto');
+//   const $targetWrap = $wrap.length ? $wrap : $('.acc-gal-wrap-quarto').first();
+//   const el = $targetWrap.find('.acc-gal-item-quarto').first().get(0);
+//   if (!el) return;
+
+//   // try pointerup/touchend first (mobile-friendly), then click
+//   try { el.dispatchEvent(new PointerEvent('pointerup', { bubbles: true })); } catch(e) {}
+//   try { el.dispatchEvent(new Event('touchend', { bubbles: true })); } catch(e) {}
+//   el.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+// });
+
+
+
+
 $(document).on('pointerup touchend click', '.quartosopen', function (e) {
+  e.preventDefault(); // avoid double-firing
   const $wrap = $(this).closest('.acc-gal-wrap-quarto');
   const $targetWrap = $wrap.length ? $wrap : $('.acc-gal-wrap-quarto').first();
-  const el = $targetWrap.find('.acc-gal-item-quarto').first().get(0);
-  if (!el) return;
 
-  // try pointerup/touchend first (mobile-friendly), then click
-  try { el.dispatchEvent(new PointerEvent('pointerup', { bubbles: true })); } catch(e) {}
-  try { el.dispatchEvent(new Event('touchend', { bubbles: true })); } catch(e) {}
-  el.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+  // Prefer a visible, non-clone slide
+  const $item = $targetWrap.find('.acc-gal-item-quarto:visible').not('.splide__slide--clone').first();
+  if (!$item.length) return;
+
+  const el = $item.get(0);
+
+  // Best-effort: try pointer/touch first (closer to a user gesture on iOS)
+  try { el.dispatchEvent(new PointerEvent('pointerup', { bubbles: true })); } catch (_) {}
+  try { el.dispatchEvent(new TouchEvent('touchend', { bubbles: true })); } catch (_) {}
+
+  // Fallbacks
+  if (typeof el.click === 'function') el.click();      // native click
+  else $item.trigger('click');                         // last resort
 });
-
 }

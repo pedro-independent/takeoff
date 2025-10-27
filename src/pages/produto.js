@@ -3109,7 +3109,7 @@ $(container).find('.acc-gal-wrap-quarto .acc-gal-list-quarto').append(galItem);
 // })
 
 
-$(document).on('click', '.quartosopen', function () {
+$(document).on('pointerup touchend click', '.quartosopen', function (e) {
   const $wrap = $(this).closest('.acc-gal-wrap-quarto');
   const $targetWrap = $wrap.length ? $wrap : $('.acc-gal-wrap-quarto').first();
   const el = $targetWrap.find('.acc-gal-item-quarto').first().get(0);

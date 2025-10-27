@@ -3084,7 +3084,7 @@ $(container).find('.acc-gal-wrap-quarto .acc-gal-list-quarto').append(galItem);
 
 
 
-        /////old
+        
 //         $(document).on('click', '.quartosopen', function() {
 //   // Find the closest .quarto-gal-wrap relative to the clicked button
 //   const galWrap = $(this).closest('.acc-gal-wrap-quarto');
@@ -3096,33 +3096,16 @@ $(container).find('.acc-gal-wrap-quarto .acc-gal-list-quarto').append(galItem);
 //   targetWrap.find('.acc-gal-item-quarto').first().trigger('click');
 // });
 
+        $('.quartosopen').clickSet((el)=>{
+            alert("1");
+          // Find the closest .quarto-gal-wrap relative to the clicked button
+  const galWrap = $(this).closest('.acc-gal-wrap-quarto');
 
+  // If not found nearby, optionally search the whole page
+  const targetWrap = galWrap.length ? galWrap : $('.acc-gal-wrap-quarto').first();
 
-
-//         $('.quartosopen').clickSet((el)=>{
-//           // Find the closest .quarto-gal-wrap relative to the clicked button
-//   const galWrap = $(this).closest('.acc-gal-wrap-quarto');
-
-//   // If not found nearby, optionally search the whole page
-//   const targetWrap = galWrap.length ? galWrap : $('.acc-gal-wrap-quarto').first();
-
-//   // Click the first .acc-gal-item inside
-//   targetWrap.find('.acc-gal-item-quarto').first().trigger('click');
-// })
-
-
-$(document).on('click', '.quartosopen', function () {
-  const $wrap = $(this).closest('.acc-gal-wrap-quarto');
-  const $targetWrap = $wrap.length ? $wrap : $('.acc-gal-wrap-quarto').first();
-  const el = $targetWrap.find('.acc-gal-item-quarto').first().get(0);
-  if (!el) return;
-
-//   alert('0');
-  // try pointerup/touchend first (mobile-friendly), then click
-  try { el.dispatchEvent(new PointerEvent('pointerup', { bubbles: true })); } catch(e) {}
-  try { el.dispatchEvent(new Event('touchend', { bubbles: true })); } catch(e) {}
-  el.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
-});
-
+  // Click the first .acc-gal-item inside
+  targetWrap.find('.acc-gal-item-quarto').first().trigger('click');
+})
 
 }

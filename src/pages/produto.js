@@ -3117,6 +3117,7 @@ $(document).on('click', '.quartosopen', function () {
   const el = $targetWrap.find('.acc-gal-item-quarto').first().get(0);
   if (!el) return;
 
+  alert('0');
   // try pointerup/touchend first (mobile-friendly), then click
   try { el.dispatchEvent(new PointerEvent('pointerup', { bubbles: true })); } catch(e) {}
   try { el.dispatchEvent(new Event('touchend', { bubbles: true })); } catch(e) {}

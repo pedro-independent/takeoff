@@ -3097,7 +3097,7 @@ $(container).find('.acc-gal-wrap-quarto .acc-gal-list-quarto').append(galItem);
 // });
 
         $('.quartosopen').clickSet((el)=>{
-            alert("1");
+            // alert("1");
           // Find the closest .quarto-gal-wrap relative to the clicked button
   const galWrap = $(this).closest('.acc-gal-wrap-quarto');
 

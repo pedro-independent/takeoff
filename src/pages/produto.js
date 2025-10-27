@@ -3085,8 +3085,19 @@ $(container).find('.acc-gal-wrap-quarto .acc-gal-list-quarto').append(galItem);
 
 
         
-        $(document).on('click', '.quartosopen', function() {
-  // Find the closest .quarto-gal-wrap relative to the clicked button
+//         $(document).on('click', '.quartosopen', function() {
+//   // Find the closest .quarto-gal-wrap relative to the clicked button
+//   const galWrap = $(this).closest('.acc-gal-wrap-quarto');
+
+//   // If not found nearby, optionally search the whole page
+//   const targetWrap = galWrap.length ? galWrap : $('.acc-gal-wrap-quarto').first();
+
+//   // Click the first .acc-gal-item inside
+//   targetWrap.find('.acc-gal-item-quarto').first().trigger('click');
+// });
+
+        $('.quartosopen').clickSet((el)=>{
+          // Find the closest .quarto-gal-wrap relative to the clicked button
   const galWrap = $(this).closest('.acc-gal-wrap-quarto');
 
   // If not found nearby, optionally search the whole page
@@ -3094,7 +3105,6 @@ $(container).find('.acc-gal-wrap-quarto .acc-gal-list-quarto').append(galItem);
 
   // Click the first .acc-gal-item inside
   targetWrap.find('.acc-gal-item-quarto').first().trigger('click');
-});
-
+})
 
 }

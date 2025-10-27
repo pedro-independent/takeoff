@@ -3215,7 +3215,7 @@ $(document).on('pointerup touchend click', '.quartosopen', function (e) {
     setTimeout(() => {
         console.log("correr")
       $targetWrap.css({ display: 'none', visibility: 'hidden' });
-    }, 10000);
+    }, 1000);
   });
 });
 

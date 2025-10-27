@@ -3151,6 +3151,40 @@ $(container).find('.acc-gal-wrap-quarto .acc-gal-list-quarto').append(galItem);
 
 
 
+// $(document).on('pointerup touchend click', '.quartosopen', function (e) {
+//   e.preventDefault();
+//   const $wrap = $(this).closest('.acc-gal-wrap-quarto');
+//   const $targetWrap = $wrap.length ? $wrap : $('.acc-gal-wrap-quarto').first();
+//   const $item = $targetWrap.find('.acc-gal-item-quarto').not('.splide__slide--clone').first();
+//   if (!$item.length) return;
+
+//   // stash old styles
+//   const oldDisplay = $item.css('display');
+//   const oldVisibility = $item.css('visibility');
+
+//   // make it “present” for the event (still invisible to user)
+//   $item.css({ display: 'block', visibility: 'visible' });
+
+//   requestAnimationFrame(() => {
+//     // prefer native click first
+//     const el = $item.get(0);
+//     if (typeof el.click === 'function') el.click();
+//     else $item.trigger('click');
+
+//     // restore styles after the JS stack clears
+//     setTimeout(() => {
+//         console.log("correr")
+//       $item.css({ display: oldDisplay, visibility: oldVisibility });
+//     }, 10000);
+//   });
+// });
+
+
+
+
+
+
+
 $(document).on('pointerup touchend click', '.quartosopen', function (e) {
   e.preventDefault();
   const $wrap = $(this).closest('.acc-gal-wrap-quarto');
@@ -3159,11 +3193,11 @@ $(document).on('pointerup touchend click', '.quartosopen', function (e) {
   if (!$item.length) return;
 
   // stash old styles
-  const oldDisplay = $item.css('display');
-  const oldVisibility = $item.css('visibility');
+  const oldDisplay = $targetWrap.css('display');
+  const oldVisibility = $targetWrap.css('visibility');
 
   // make it “present” for the event (still invisible to user)
-  $item.css({ display: 'block' });
+  $targetWrap.css({ display: 'block', visibility: 'visible' });
 
   requestAnimationFrame(() => {
     // prefer native click first
@@ -3173,10 +3207,12 @@ $(document).on('pointerup touchend click', '.quartosopen', function (e) {
 
     // restore styles after the JS stack clears
     setTimeout(() => {
-      $item.css({ display: oldDisplay, visibility: oldVisibility });
-    }, 0);
+        console.log("correr")
+      $targetWrap.css({ display: 'none', visibility: 'hidden' });
+    }, 10000);
   });
 });
+
 
 
 }

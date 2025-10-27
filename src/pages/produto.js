@@ -3202,8 +3202,14 @@ $(document).on('pointerup touchend click', '.quartosopen', function (e) {
   requestAnimationFrame(() => {
     // prefer native click first
     const el = $item.get(0);
-    if (typeof el.click === 'function') el.click();
-    else $item.trigger('click');
+
+  // Best-effort: try pointer/touch first (closer to a user gesture on iOS)
+  try { el.dispatchEvent(new PointerEvent('pointerup', { bubbles: true })); } catch (_) {}
+  try { el.dispatchEvent(new TouchEvent('touchend', { bubbles: true })); } catch (_) {}
+
+  // Fallbacks
+  if (typeof el.click === 'function') el.click();      // native click
+  else $item.trigger('click');                   
 
     // restore styles after the JS stack clears
     setTimeout(() => {

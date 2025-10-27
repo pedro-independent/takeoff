@@ -3128,25 +3128,25 @@ $(container).find('.acc-gal-wrap-quarto .acc-gal-list-quarto').append(galItem);
 
 
 
-$(document).on('pointerup touchend click', '.quartosopen', function (e) {
-  e.preventDefault(); // avoid double-firing
-  const $wrap = $(this).closest('.acc-gal-wrap-quarto');
-  const $targetWrap = $wrap.length ? $wrap : $('.acc-gal-wrap-quarto').first();
+// $(document).on('pointerup touchend click', '.quartosopen', function (e) {
+//   e.preventDefault(); // avoid double-firing
+//   const $wrap = $(this).closest('.acc-gal-wrap-quarto');
+//   const $targetWrap = $wrap.length ? $wrap : $('.acc-gal-wrap-quarto').first();
 
-  // Prefer a visible, non-clone slide
-  const $item = $targetWrap.find('.acc-gal-item-quarto:visible').not('.splide__slide--clone').first();
-  if (!$item.length) return;
+//   // Prefer a visible, non-clone slide
+//   const $item = $targetWrap.find('.acc-gal-item-quarto:visible').not('.splide__slide--clone').first();
+//   if (!$item.length) return;
 
-  const el = $item.get(0);
+//   const el = $item.get(0);
 
-  // Best-effort: try pointer/touch first (closer to a user gesture on iOS)
-  try { el.dispatchEvent(new PointerEvent('pointerup', { bubbles: true })); } catch (_) {}
-  try { el.dispatchEvent(new TouchEvent('touchend', { bubbles: true })); } catch (_) {}
+//   // Best-effort: try pointer/touch first (closer to a user gesture on iOS)
+//   try { el.dispatchEvent(new PointerEvent('pointerup', { bubbles: true })); } catch (_) {}
+//   try { el.dispatchEvent(new TouchEvent('touchend', { bubbles: true })); } catch (_) {}
 
-  // Fallbacks
-  if (typeof el.click === 'function') el.click();      // native click
-  else $item.trigger('click');                         // last resort
-});
+//   // Fallbacks
+//   if (typeof el.click === 'function') el.click();      // native click
+//   else $item.trigger('click');                         // last resort
+// });
 
 
 

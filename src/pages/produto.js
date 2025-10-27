@@ -3133,7 +3133,7 @@ $(document).on('pointerup touchend click', '.quartosopen', function (e) {
   const $targetWrap = $wrap.length ? $wrap : $('.acc-gal-wrap-quarto').first();
 
   // Prefer a visible, non-clone slide
-  const $item = $targetWrap.find('.acc-gal-item-quarto').not('.splide__slide--clone').first();
+  const $item = $targetWrap.find('.acc-gal-item-quarto:visible').not('.splide__slide--clone').first();
   if (!$item.length) return;
 
   const el = $item.get(0);

@@ -2082,8 +2082,40 @@ Para poder limpar o valor total sempre que se muda a selecção */
             })
         }
 
+  const cards = document.querySelectorAll('.dest-ofertas-pricing');
+    console.log("SDSADeeeeeeeeeeeeeeeeeeeeeeeeeeeeeFSADF");
+    console.log(cards);
+
+  cards.forEach(card => {
+    const hoverInfo = card.querySelector('.price-hover');
+        if (!hoverInfo) return;
+    const hoverTargets = card.querySelectorAll('.fgr-20-400-20');
+
+    
+    console.log("SDSADFSADF");
+    console.log(hoverInfo);
+    console.log(hoverTargets);
 
 
+
+
+    // Set transition and initial opacity via JS
+    hoverInfo.style.transition = 'opacity 0.3s ease';
+    hoverInfo.style.opacity = '0';
+
+    // For each hover target inside the card
+    hoverTargets.forEach(target => {
+      target.addEventListener('mouseenter', () => {
+        hoverInfo.style.opacity = '1';
+      });
+
+      target.addEventListener('mouseleave', () => {
+        hoverInfo.style.opacity = '0';
+      });
+    });
+  });
+
+   
     }
     
     

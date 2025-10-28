@@ -1991,11 +1991,37 @@ initPageTransitions();
       });
   }
 
+
+//hover preços "desde"
+
+  const cards = document.querySelectorAll('.off-card-price');
+
+  cards.forEach(card => {
+    const hoverInfo = card.querySelector('.price-hover');
+    const hoverTargets = card.querySelectorAll('.off-card-price-val, .off-card-price-subtitle');
+
+    if (!hoverInfo) return;
+
+    // Set transition and initial opacity via JS
+    hoverInfo.style.transition = 'opacity 0.3s ease';
+    hoverInfo.style.opacity = '0';
+
+    // For each hover target inside the card
+    hoverTargets.forEach(target => {
+      target.addEventListener('mouseenter', () => {
+        hoverInfo.style.opacity = '1';
+      });
+
+      target.addEventListener('mouseleave', () => {
+        hoverInfo.style.opacity = '0';
+      });
+    });
+  });
   
 } /*Fim initComonCode*/
 
 /* Vimeo Lightbox Init */
-  export function initVimeoLightboxAdvanced() {
+  export function initVimeoLightboxAdvanced() { 
   // Single lightbox container
    lightbox = document.querySelector('[data-vimeo-lightbox-init]');
   if (!lightbox) return;

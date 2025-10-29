@@ -2083,20 +2083,11 @@ Para poder limpar o valor total sempre que se muda a selecção */
         }
 
   const cards = document.querySelectorAll('.dest-ofertas-pricing');
-    console.log("SDSADeeeeeeeeeeeeeeeeeeeeeeeeeeeeeFSADF");
-    console.log(cards);
 
   cards.forEach(card => {
     const hoverInfo = card.querySelector('.price-hover');
         if (!hoverInfo) return;
     const hoverTargets = card.querySelectorAll('.fgr-20-400-20');
-
-    
-    console.log("SDSADFSADF");
-    console.log(hoverInfo);
-    console.log(hoverTargets);
-
-
 
 
     // Set transition and initial opacity via JS
@@ -2130,8 +2121,8 @@ Para poder limpar o valor total sempre que se muda a selecção */
             $(container).find('.onda-list').each(function(idx, el){
                 let slug = $(el).attr('data-slug');
                 
-
-                $(el).load(`/galeria-de-ondas/${slug} .onda-card`, ()=>{
+const base = window.location.pathname.includes('/en/') ? '/en' : '';
+                $(el).load(`${base}/galeria-de-ondas/${slug} .onda-card`, ()=>{
                     loaded++;
                     
                     if (loaded === total) resolve();
@@ -2197,7 +2188,8 @@ async function carregarAcomodacoes() {
                 $(container).find('.acc-list-item').each(function(idx, el){
                     let name = $(el).attr('data-name')
 
-                    $(el).find('.loader').load(`/modulo-acomodacoes/${slug}  .acc-gal[data-name="${name}"] .acc-gal-list`, ()=>{
+                    const base = window.location.pathname.includes('/en/') ? '/en' : '';
+                    $(el).find('.loader').load(`${base}/modulo-acomodacoes/${slug}  .acc-gal[data-name="${name}"] .acc-gal-list`, ()=>{
 
                         // $(el).find('.loader .acc-gal-item').attr('data-name', name)
 
@@ -2825,7 +2817,8 @@ async function carregarQuartos()
                 $(container).find('.acc-list-item').each(function(idx, el){
                     let name = $(el).attr('data-name')
 
-                    $(el).find('.loaderquarto').load(`/modulo-acomodacoes/${slug}  .acc-gal-quarto .acc-gal-list-quarto`, ()=>{
+                    const base = window.location.pathname.includes('/en/') ? '/en' : '';
+                    $(el).find('.loaderquarto').load(`${base}/modulo-acomodacoes/${slug}  .acc-gal-quarto .acc-gal-list-quarto`, ()=>{
 
                         // $(el).find('.loader .acc-gal-item').attr('data-name', name)
 

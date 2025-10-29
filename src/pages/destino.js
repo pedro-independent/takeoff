@@ -1022,8 +1022,9 @@ async function startLoad() {
                 $(container).find('.od-zona').each(function(idx, el){
                     
                     let slug = $(el).attr('data-slug') 
-        
-                    $(el).find('.loader').load(`/galeria-de-ondas/${slug} .blue-col`, ()=>{
+         
+                    const base = window.location.pathname.includes('/en/') ? '/en' : '';
+                    $(el).find('.loader').load(`${base}/galeria-de-ondas/${slug} .blue-col`, ()=>{
                         $(el).find('.blue-card').attr('data-card-zone', slug)
 
 
@@ -1165,7 +1166,8 @@ initVimeoLightboxAdvanced();
                 $(container).find('.acc-list-item').each(function(idx, el){
                     let name = $(el).attr('data-name')
 
-                    $(el).find('.loader').load(`/modulo-atracoes/${slug}  .acc-gal[data-name="${name}"] .acc-gal-list`, ()=>{
+                    const base = window.location.pathname.includes('/en/') ? '/en' : '';
+                    $(el).find('.loader').load(`${base}/modulo-atracoes/${slug}  .acc-gal[data-name="${name}"] .acc-gal-list`, ()=>{
 
                         $(el).find('.loader .acc-gal-item').attr('data-name', name)
 

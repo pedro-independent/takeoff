@@ -265,15 +265,15 @@ export class ResortData {
         let perInput = $('.loader .form-input-hidden').clone()
 
         let perController = $('.loader .flt-dd-hidden').clone()
-
+        
         perFilter.attr('data-req', '')
-        perFilter.find('.flt-input-label').children().text('Periodo')
+        perFilter.find('.flt-input-label').children().text( window.location.pathname.includes('/en/') ? 'Period' : 'Periodo')
 
         perFilter.attr('data-filter-sync', 'Periodo')
         perController.attr('data-filter-sync', 'Periodo')
 
 
-        perRes.find('.consulta-detalhe-title').children().text('Periodo')
+        perRes.find('.consulta-detalhe-title').children().text(window.location.pathname.includes('/en/') ? 'Period' : 'Periodo')
         perRes.attr('data-filter-sync', 'Periodo')
 
         perInput.attr('data-filter-sync', 'Periodo')
@@ -355,7 +355,20 @@ export class ResortData {
                 }
                 let newController = $('.loader .flt-dd-hidden').clone()
 
-                newFilter.find('.flt-input-label').children().text(key)
+let  isEN = window.location.pathname.includes('/en/');
+
+let dropLabel = key;
+if(isEN)
+{
+    if(dropLabel == 'Ocupação')
+        dropLabel = 'Ocupation'
+
+    if(dropLabel == 'Noites no alojamento')
+        dropLabel = 'Number os Nights'
+
+}
+
+                newFilter.find('.flt-input-label').children().text(dropLabel)
                 newFilter.attr('data-filter-sync', filterKey)
 
                 newController.attr('data-filter-sync', filterKey)

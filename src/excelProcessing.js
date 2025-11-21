@@ -692,7 +692,7 @@ if(isEN)
 
 
 export function sheetInit(pageURL, callback){
-    //console.log(csv)
+    console.log(csv)
 
     // let obj
 

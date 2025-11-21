@@ -1,6 +1,7 @@
 
 // -------------------------------- GLOBAL VARS/VARIABLES
 
+//test
 
 // async function start() {
 switch (document.querySelector('body')?.dataset.page) 

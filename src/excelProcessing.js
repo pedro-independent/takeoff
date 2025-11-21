@@ -693,7 +693,7 @@ if(isEN)
 
 export function sheetInit(pageURL, callback){
     console.log(csv)
-
+    console.log(pageURL)
     // let obj
 
     $.ajax({

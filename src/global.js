@@ -21,15 +21,6 @@ import AirDatepickerPT from "air-datepicker/locale/pt";
 
 // -------------------------------- GLOBAL VARS/VARIABLES
 
-// const isHome = document.querySelector('body')?.dataset.page === 'home';
-
-// if (isHome) 
-// {
-//   home()
-// }
-
-
-
 
 export const colors = {};
 colors.white = "#FFFFFF";
@@ -135,24 +126,14 @@ if (Webflow.env('editor') == undefined) {
   }
 
   // ---------------- NAV SETUP ----------------
-  // await new Promise(resolve => {
+
   navInit();
-  //   resolve()
-  //  })
-
   btnInit();
-
-  //Isto  é codigo pageClass que deve ser para morrer
-  // active.page = new pageClasses[data.next.namespace](data, data.next.namespace)
-  // await active.page.launch()
-
   footerInit();
   navSetupScroll();
 
   //Ainda precisamos do ScrollTrigger.refresh()?
   ScrollTrigger.refresh();
-
-
 
   formReset();
 

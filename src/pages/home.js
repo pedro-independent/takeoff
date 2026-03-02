@@ -132,9 +132,9 @@ initVimeoLightboxAdvanced();
 
 
         // -------- SETUP OFFER CARDS --------
-        $('.page-container').find([$('.page-container').find('.off-card')[0], $('.page-container').find('.off-card')[1]]).wrapAll('<div class="off-card-row"></div>')
-        $('.page-container').find([$('.page-container').find('.off-card')[2], $('.page-container').find('.off-card')[3]]).wrapAll('<div class="off-card-row"></div>')
-        $('.page-container').find([$('.page-container').find('.off-card')[0], $('.page-container').find('.off-card')[3]]).addClass('dest')
+        // $('.page-container').find([$('.page-container').find('.off-card')[0], $('.page-container').find('.off-card')[1]]).wrapAll('<div class="off-card-row"></div>')
+        // $('.page-container').find([$('.page-container').find('.off-card')[2], $('.page-container').find('.off-card')[3]]).wrapAll('<div class="off-card-row"></div>')
+        // $('.page-container').find([$('.page-container').find('.off-card')[0], $('.page-container').find('.off-card')[3]]).addClass('dest')
 
         $('.off-card-wrap').hoverSet((el)=>{
             gsap.to($(el).find('.off-card-bg'), {

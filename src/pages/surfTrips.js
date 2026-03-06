@@ -1,7 +1,7 @@
 
 import { SetVariables, initCommonCode, navProtOn } from '../global.js';
 
-export function runSurTrips()
+export function runSurfTrips()
 {
 
 let  navDark = true

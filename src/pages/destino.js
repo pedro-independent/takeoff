@@ -892,7 +892,7 @@ initVimeoLightboxAdvanced();
 
 
         // -------- COMODIDADES GALLERY --------
-        if($('.page-container').find('.fac-wrap.splide').first().length > 0){
+        if($('.page-container').find('.fac-wrap.splide').first().find('.splide__track').length > 0){
 
             var commSplide = new Splide($('.page-container').find('.fac-wrap.splide').first().get(0), {
                 type: 'slide',
